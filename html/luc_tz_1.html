@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Moving</title>
+  <script>'use strict';
+  </script>
+</head>
+<style>
+</style>
+
+<body class="main-page">
+
+  <div id="elem"></div>
+
+  <script>
+    // dataGen(8); // генерируем случ данные размерности 8
+    // массив, что ниже (pointsArr), 
+    // xранит объект так: координаты: (x,y), затем уже время. 
+    // -------- начало исполняемой части
+    const pointsArr = [
+      [0, 0, 2],
+      [20, 20, 4],
+      [0, 40, 0],
+      [500, -200, 20],
+      [10, 400, 30],
+      [-500, 1000, 5]
+    ]; // 6 точек, 5 участков
+
+    const givenTime = 19; // задаём время 
+
+    let timeArr = new Array(pointsArr.length);
+    // тут будет храниться вычисленное время прохождения участка
+
+    let dtOk = dataTest(pointsArr, givenTime); // проверяем нач данные на релевантность
+
+    if (!dtOk) {
+      myWriteLine("Проблема с нач. данными.");
+      throw new Error("Аварийный выход из скрипта");
+    } // в try..catch не оборачиваю
+
+    let timeCached = false;
+    chacheTimeOnSections(pointsArr); // примитивный 
+    // заменитель кеширования\мемоизации.
+    // Предварительное вычисление времени по участкам
+    // сохраняю в timeArr.
+
+    let sect = calcSection(pointsArr, givenTime);
+
+    let [x, y] = getXY(pointsArr, sect, givenTime);
+
+    let wStr;
+    myWriteLine(`координаты объекта на ${givenTime}й секунде:` +
+      ` (${x.toFixed(2)}; ${y.toFixed(2)}), это ${sect + 1}й участок`);
+
+    dataPrint(pointsArr);
+    // ---- конец исполняемой части
+
+    // ---- Раздел функций
+    function getSegmentDistance(x1, y1, x2, y2) {
+      // считаем расстояние одного участка
+      return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y2 - y1), 2));
+    }
+
+    function myWriteLine(str) {
+      // выводит 1 строку в div
+      const wTxt = document.createElement('text');
+      wTxt.innerHTML = str + "<br>";
+      elem.append(wTxt);
+    }
+
+    function getTimeInSegment(x1, y1, x2, y2, v) {
+      // считаем и выдаём время на одном участке
+      if (v > 0) {
+        return getSegmentDistance(x1, y1, x2, y2) / v;
+      }
+      if (v == 0) {
+        return Infinity;
+      }
+    }
+
+    function getTimeInChain(arr, n1, n2) {
+      // считаем время на некоем отрезке массива
+      // n1 - начальный узел, n2 - конец маршрута
+      // в терминах, как обычно говорят люди,
+      // n2-й участок. getTimeInChain(ххх, 0, 1) = <1й участок>
+      // т.е. между точками 1 и 2, что хранятся в массиве
+      //  как элементы массива [0]-й и [1]-й, это 1й участок
+
+      let fullTime = 0;
+      let currentTime;
+      try {
+        let x1, y1, x2, y2, v;
+        // использую этих переменных для читабельности формулы (13)
+        for (let i = n1; i < n2; i++) {
+          if (timeCached) { // схематично реализована мемоизация
+            currentTime = timeArr[i + 1];
+          } else { // из-за мемоизации эта ветка реально работать не будет
+            x1 = arr[i][0];
+            y1 = arr[i][1];
+            v = arr[i][2];
+            x2 = arr[i + 1][0];
+            y2 = arr[i + 1][1];
+            currentTime = getTimeInSegment(x1, y1, x2, y2, v); // (13)
+          }
+          if (currentTime == Infinity) {
+            fullTime = Infinity;
+            return fullTime;
+          }
+          if (currentTime == -1) {
+            fullTime = -1;
+            return fullTime; //это можно было бы оформить через throw
+          }
+          fullTime += currentTime;
+        }
+      }
+      catch (e) {
+        // реально try работать не будет, т.к. большинство
+        // я обрабатываю в dataTest
+        myWriteLine("неверные параметры вызова функции: " + e.message);
+      }
+      return fullTime;
+    }
+
+    function dataTest(arr, givenTime) {
+      let l = arr.length;
+      myWriteLine("длина массива =" + l);
+      if (l == 0) {
+        let ss = "Ошибочный массив, в нём нет элементов.";
+        myWriteLine(ss);
+        return false;
+      }
+      if (givenTime < 0) {
+        myWriteLine("Ошибочное (отрицательное) время.");
+        return false;
+      }
+
+      // тут анализируем скорость на отриц зн-я
+      let i;
+      for (i = 0; i < l; i++) {
+        if (arr[i][2] < 0) {
+          if (i != l - 1) {
+            myWriteLine("Начальные данные неверны. Скорость на " +
+              String(i + 1) + "-м участке меньше нуля, = " +
+              String(arr[i][2]));
+            return true;
+          } else {
+            myWriteLine("Предупреждение. Скорость на " + "последнем участке меньше нуля.");
+            myWriteLine("На вычислениях это не скажется.");
+          }
+        }
+        if (arr[i][2] == 0) {
+          myWriteLine("Предупреждение. Скорость на " +
+            (i + 1) +
+            "-м участке равна нулю." +
+            " Дальше объект не пойдёт.");
+        }
+      }
+      return true;
+    }
+
+    function chacheTimeOnSections(arr) {
+      // в timeArr заносим время
+      // прохождедия объектом участка. 
+      // Локальное, т.е. чтоб узнать общее, нужно 
+      // суммировать по участкам.
+      // Время записываем в конечную точку участка.
+      // Т.е., участок АВ, две точки, время будет записано в
+      // точку В.
+      const l = arr.length;
+
+      timeArr[0] = 0; // В первой точке время = 0
+      let normalFillingFlag = true;
+      let x1, y1, x2, y2, v;
+      for (let i = 0; i < l - 1; i++) {
+        if (normalFillingFlag) {
+          x1 = arr[i][0];
+          y1 = arr[i][1];
+          v = arr[i][2];
+          x2 = arr[i + 1][0];
+          y2 = arr[i + 1][1];
+          timeArr[i + 1] = getTimeInSegment(x1, y1, x2, y2, v);
+          if (timeArr[i + 1] == Infinity) {
+            normalFillingFlag = false;
+          }
+        } else { // после любого узла с 0й скоростью до всех
+          // остальных объект не дойдёт, время прохождения 
+          // участка = бесконечность
+          timeArr[i + 1] = Infinity;
+        }
+      }
+      timeCached = true;
+      return;
+    }
+
+
+    function calcSection(arr, givenTime) {
+      // высчитываем участок, на кот будет объект в момент времени givenTime
+      let totTime = 0;
+
+      for (let i = 0; i < arr.length - 1; i++) {
+        if (timeArr[i + 1] != Infinity) {
+          totTime += timeArr[i + 1];
+        } else {
+          totTime = Infinity;
+          return i; // объект замрёт на этом участке
+        }
+
+        if (totTime > givenTime) { // мы нашли участок, на кот будет объект
+          return i;
+        }
+      }  // это новый вар-т
+
+      return arr.length - 1; // означает неуспешный поиск, 
+      // точнее время слишком большое, условно в это время
+      // объект будет в последней точке
+    }
+
+    function getXY(arr, sect, givenTime) {
+      // считаем координаты на известном участке
+      // в нашем упрощённом случае эта точка лежит на плоскости,
+      //  на прямой, на отрезке ([x1,y1];[x2,y2])
+      let x1, y1, x2, y2, v;
+
+      x1 = arr[sect][0];
+      y1 = arr[sect][1];
+      v = arr[sect][2];
+      x2 = arr[sect + 1][0];
+      y2 = arr[sect + 1][1];
+
+      let xObj, yObj, time1, time2, deltaT, tLocal, koeff;
+
+      time1 = getTimeInChain(arr, 0, sect); // время от начала до точки A
+      time2 = getTimeInChain(arr, 0, sect + 1); // -- "" -- до точки B
+      // в этом месте много лишней работы, если выч-й много, 
+      // можно организовать кэш.
+
+      deltaT = time2 - time1; // Это время прохода объектом отрезка AB
+
+      tLocal = givenTime - time1; // Локальное время объекта на отрезке АВ. 
+      // 0 - в точке А, например.
+      koeff = tLocal / deltaT; // доля отрезка АВ (1 = весь, 
+      // 0.2 - одна пятая), которую прошёл объект
+
+      xObj = x1 + (x2 - x1) * koeff;
+      yObj = y1 + (y2 - y1) * koeff;
+
+      return [xObj, yObj];
+    }
+
+    function dataPrint(arr) {
+      // временная, для наглядности
+      let fullTime = 0;
+      let fullDist = 0;
+      let currentTime, previousTime = 0;
+      let x1, y1, x2, y2, v;
+
+      console.log("участок    dY         dТ       расст     время");
+
+      for (let i = 0; i < arr.length - 1; i++) {
+        x1 = arr[i][0];
+        y1 = arr[i][1];
+        v = arr[i][2];
+        x2 = arr[i + 1][0];
+        y2 = arr[i + 1][1];
+
+        currentTime = getTimeInSegment(x1, y1, x2, y2, v);
+        fullTime += currentTime;
+        fullDist += getSegmentDistance(x1, y1, x2, y2);
+
+        let wStr = String(i.toFixed(0));
+        wStr += ",";
+        wStr += String((i + 1).toFixed(0));
+        wStr += "       ";
+        wStr += String((y2 - y1).toFixed(2));
+        wStr += "     ";
+        wStr += String((fullTime - previousTime).toFixed(1));
+        wStr += "      ";
+        wStr += String(fullDist.toFixed(1));
+        wStr += "        ";
+        wStr += String(fullTime.toFixed(1));
+        console.log(wStr);
+
+        previousTime = fullTime;
+      };
+      return;
+    }
+
+
+  </script>
+
+
+
+</body>
+
+</html>

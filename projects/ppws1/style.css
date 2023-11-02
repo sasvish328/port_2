@@ -1,0 +1,587 @@
+:root {
+  --primary: #5e3bee;
+  --bg-shade: #f5fcff;
+  --dribble: #e62872;
+  --heading-color: #282938;
+  --body: #1c1e53;
+  /* моё */
+  font-size: 0.3333333333px;
+  --un-visited-link: var(--body);
+  --visited-link: var(--body);
+  --hover-link: var(--primary);
+  --ghost: #505050;
+  --nav-gap: 64rem;
+  --body1-fs: 64rem;
+  --fic-width: 1106rem;
+  --icon-size: 240rem;
+  --dribble-icon-size: 96rem;
+  --pf-content-gap: 128rem;
+  --real-width: 5248rem; /* ~1749.33px; */
+  --hover-border-bottom: 12rem solid var(--primary);
+  --unused-page-color: #1a1a1a;
+  --star-color: #006b6a;
+  --avatar-size: 224rem;
+  accent-color: var(--primary);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+.skill-item:hover {
+  border-bottom: var(--hover-border-bottom);
+}
+a {
+  color: var(--un-visited-link);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--visited);
+}
+a:hover {
+  color: var(--hover-link);
+}
+body {
+  padding: 0 256rem;
+  margin: 0;
+  background-color: var(--bg-shade);
+  color: var(--body);
+  font-family: Roboto, sans-serif;
+  font-size: var(--body1-fs);
+}
+button {
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: var(--body1-fs);
+  white-space: nowrap;
+}
+ul {
+  list-style: none;
+}
+.accent {
+  color: var(--primary);
+}
+.suptitle {
+  font-size: var(--body1-fs);
+  font-weight: 500;
+  line-height: 150%;
+  margin: 0;
+}
+.subtitle {
+  font-weight: 400;
+  font-size: 72rem;
+  line-height: 150%;
+}
+.body-02 {
+  font-weight: 400;
+  line-height: 150%;
+}
+.h2 {
+  padding: 64rem auto 96rem; /* 21,333px --- 32px; */
+}
+
+header {
+  margin: 94rem 0 482rem;
+  background-color: var(--dark1);
+  color: var(--prim-color);
+  max-width: var(--real-width);
+  height: 208rem;
+  display: grid;
+  grid-template-columns: 560rem 920rem auto 260rem 512rem;
+  /*                     logo   fic1    menu fic2  c-btn  */
+  text-align: center;
+  align-items: center;
+  gap: 128rem;
+}
+header.nav-wrapper .logo,
+footer > .nav-wrapper .logo {
+  overflow: hidden;
+  height: 120rem;
+}
+header.nav-wrapper .logo img,
+footer > .nav-wrapper .logo img,
+footer .socials img {
+  height: 100%;
+  width: 100%;
+}
+header.nav-wrapper > .menu,
+footer > .nav-wrapper > .menu {
+  display: flex;
+  margin: 0;
+  text-align: center;
+  gap: 128rem;
+}
+.contact-btn {
+  border: 4rem solid var(--primary);
+  border-radius: 16rem;
+  color: var(--primary);
+  margin-right: 0;
+  padding: 56rem 91rem;
+  white-space: nowrap;
+}
+.menu-item {
+  vertical-align: middle;
+  padding: 0 var(--nav-gap);
+  white-space: nowrap;
+}
+
+main > .header {
+  display: grid;
+  grid-template-columns: 2372rem 2752rem;
+  /*                   left-col right-col  */
+  align-items: flex-start;
+  margin-bottom: 827.5rem;
+}
+main > .header > .left-col {
+  display: grid;
+  grid-template-rows: 305rem 96rem 64rem 516rem 64rem 220rem 157rem 208rem;
+  /*                   fic0   sup  fic1     h1  fic2   sub
+    fic3   button */
+  /* align-items: flex-start; */
+  margin: 0;
+  /* margin: 305rem 0; */
+}
+main > .header > .left-col > .suptitle {
+  height: 96rem;
+}
+main > header > .left-col > .fic1 {
+  height: 64rem;
+}
+main > .header > .left-col > .h1 {
+  margin: 0;
+  font-size: 224rem;
+  font-weight: 700;
+  line-height: 120%;
+}
+main > .header > .left-col > .subtitle {
+  /* margin-bottom: 96rem; */
+  margin: 0;
+  display: block;
+  width: 1864rem;
+}
+main header > .left-col > .fic3 {
+  height: 160rem;
+}
+.get-btn {
+  padding: 56 auto; /* 18.67px */
+  background-color: var(--primary);
+  color: white;
+  width: 512rem; /* == 170.67px; */
+  height: 208rem; /* == 69.33px; */
+  border-radius: 16rem; /* == 5.33px; */
+  text-align: center;
+  font-size: 64rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+main > .header > .right-col {
+  overflow: hidden;
+}
+
+.myskills {
+  margin-bottom: 846rem;
+  /* margin-bottom: 848rem; это выч правильно, но... */
+}
+main > section.myskills > .suptitle {
+  margin-bottom: 64rem;
+}
+.h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 192rem; /* == 64px; */
+  line-height: 120%;
+}
+main > section.myskills > .h2 {
+  margin-bottom: 320rem;
+}
+.skill-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 177rem;
+  /* gap: 128rem; вычислено правильно, но не работает, РР не совпадает почему-то */
+  padding: 0;
+  margin: 0;
+}
+.skill-container > .skill-item {
+  width: 100%;
+  padding: 96rem;
+  border-radius: 32rem; /* == 10.7px; */
+  /* vertical-align: center; */
+  display: grid;
+  grid-template-rows: var(--icon-size) 96rem 135rem 64rem 384rem;
+  /*                  icon             fic4   h2    fic5  desc */
+  margin: 0;
+}
+.skill-item > .icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  padding: 40rem; /* == 13.333px; */
+  object-fit: fill;
+}
+.skill-item > .icon > img {
+  height: 100%;
+  width: 100%;
+}
+
+.skill-name.h3 {
+  font-weight: 700;
+  font-size: 96rem; /* == 32px; */
+  line-height: 140%;
+  white-space: nowrap;
+}
+.skill-desc {
+  line-height: 150%;
+}
+
+.about {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+}
+.about > .left-col,
+.about > .left-col > img {
+  width: 2440rem; /* == 813.333px; */
+  height: 2988rem; /* == 996px; */
+  display: inline-block;
+}
+.about > .right-col {
+  align-items: flex-start;
+  justify-content: start;
+  padding-left: 48rem;
+  width: 2464rem; /* == 821.333px; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 296rem;
+}
+.about > .right-col > .suptitle {
+  display: block;
+  width: 100%;
+  margin-top: 889rem;
+}
+.about > .right-col > .h2 {
+  margin-top: 32rem; /* == 10.67px; */
+  margin-bottom: 96rem; /* == 32px; */
+  text-align: left;
+}
+.about > .right-col p {
+  margin: 0;
+}
+
+.portfolio {
+  margin: 625rem 0;
+  margin-bottom: 482rem;
+}
+.portfolio > .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 320rem; /* 106.67px; */
+}
+.portfolio > .header > .left-col {
+  display: inline-block;
+  width: 3072rem;
+  /* 1024px; */
+}
+.portfolio > .header > .right-col {
+  display: inline-block;
+  justify-content: right;
+  margin-right: 0rem;
+}
+.portfolio > .header > .left-col > .h2 {
+  margin-top: 64rem; /* 21.33px; */
+}
+.dribble {
+  width: 755rem; /* 251.667px; */
+  height: 224rem; /* 74.667px; */
+  border-radius: 32rem; /* 10.7px; */
+  background-color: var(--dribble);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48rem; /* 16px; */
+}
+.dribble > img,
+.dribble > p {
+  display: inline-block;
+  padding-left: 0;
+  padding-right: 0;
+}
+.dribble > img {
+  width: var(--dribble-icon-size);
+  height: var(--dribble-icon-size);
+}
+.portfolio > .content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  gap: var(--pf-content-gap);
+}
+.portfolio > .content > .item {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(((var(--real-width) - 2 * var(--pf-content-gap)) / 3));
+  /* box-shadow: 0px 0px 96rem 0px rgba(0, 100, 100, 0.95); */
+  box-shadow: 0px 0px 96rem 0px rgba(0, 0, 0, 0.15);
+}
+.portfolio > .content > .item > img {
+  height: 400px;
+}
+.portfolio .text-info {
+  padding: 96rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.portfolio .project-name {
+  font-weight: 700;
+  font-size: 96rem;
+  line-height: 140%;
+  margin-bottom: 34rem;
+  margin-top: 0rem;
+}
+.portfolio .project-desc {
+  margin: 0 auto 104rem;
+  line-height: 150%;
+}
+.portfolio .project-link-btn {
+  width: 34%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48rem;
+  border-bottom: 4rem solid var(--primary);
+  background-color: var(--bg-shade);
+  padding-bottom: 40rem; /* 10.67px; */
+  font-size: 56rem;
+}
+.portfolio .project-link-btn > .label,
+.portfolio .project-link-btn > img {
+  display: inline-block;
+}
+
+.testimonials {
+  padding: 448rem 0;
+}
+.testimonials > .suptitle {
+  margin-bottom: 66rem;
+}
+.testimonials > .h2 {
+  margin-bottom: 320rem; /* 106.67px; */
+}
+.testimonials > .content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--pf-content-gap);
+}
+.testimonials > .content > .card {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(((var(--real-width) - 2 * var(--pf-content-gap)-8rem) / 3));
+  border: 5rem solid var(--star-color);
+  padding: var(--pf-content-gap);
+  padding-bottom: calc(var(--pf-content-gap) - 3rem);
+  border-radius: 24rem;
+}
+.testimonials > .content > .card > .text {
+  padding-top: calc(var(--pf-content-gap) - 20rem);
+  line-height: 150%;
+  margin-top: 0;
+  margin-bottom: 30rem;
+}
+.testimonials > .content > .card > .client {
+  display: flex;
+  /* align-items: center; */
+  justify-content: start;
+  gap: 64rem; /* 21.33px; */
+}
+.testimonials > .content > .card > .client > img,
+.testimonials > .content > .card > .client > .text {
+  display: inline-block;
+}
+.testimonials > .content > .card > .client > img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+}
+.testimonials > .content > .card > .client > .text {
+  justify-content: start;
+}
+.testimonials > .content > .card > .client > .text > .suptitle {
+  margin-top: 18rem;
+}
+.testimonials > .content > .card > .client > .text > .company {
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+}
+
+main > .contact {
+  margin-top: 145rem; /* 48.33px; */
+  padding: 448rem 1088rem; /* 149.33px 362.67px; */
+  text-align: center;
+}
+main > .contact > .suptitle {
+  margin-left: 50rem;
+  margin-bottom: 64rem;
+}
+main > .contact > .h2 {
+  margin-left: 50rem;
+  margin-bottom: 100rem;
+}
+main > .contact > .subtitle {
+  margin-left: 46rem;
+  margin-bottom: 198rem;
+}
+
+.begin-form-box {
+  display: grid;
+  gap: 102rem;
+  text-align: left;
+  grid-template:
+    "first-name last-name"
+    "email phone-number"
+    "topic topic"
+    "message message"
+    "acception acception"
+    /1fr 1fr;
+  margin-bottom: 96rem;
+}
+label {
+  display: block;
+  margin-bottom: -10px;
+}
+.first-name {
+  grid-area: first-name;
+}
+.last-name {
+  grid-area: last-name;
+}
+.last-name {
+  grid-area: last-name;
+}
+.email {
+  grid-area: email;
+}
+.phone-number {
+  grid-area: phone-number;
+}
+.choose-topic {
+  grid-area: topic;
+}
+.begin-form-box input,
+.choose-topic-wrapper,
+textarea {
+  width: 100%;
+  padding: 56rem;
+  border: 4rem solid var(--primary);
+  border-radius: 24rem;
+  font-size: 64rem;
+}
+.message {
+  grid-area: message;
+}
+.choose-topic-wrapper {
+  padding-bottom: 56rem;
+  padding-top: 56rem;
+}
+.choose-topic-select {
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -26rem;
+}
+select {
+  font-size: 64rem;
+}
+textarea {
+  padding-top: 42rem;
+  padding-bottom: 70rem;
+}
+textarea::placeholder {
+  font-size: 64rem;
+  font-weight: 400;
+  text-align: left;
+  line-height: 150%;
+  color: var(--ghost);
+  /* letter-spacing: 0.01px; 
+  тут не работает. Мб меньше какой-то величины 
+  в placeholder-е не делается.
+  */
+}
+.acception {
+  grid-area: acception;
+  display: flex;
+  justify-items: start;
+  margin-bottom: 14rem;
+}
+form .begin-form-box .acception input {
+  width: 64rem;
+}
+form .begin-form-box .acception label {
+  display: inline-block;
+  padding-left: 24rem;
+  font-size: 56rem;
+  margin-top: -10rem;
+}
+.acception input[type="checkbox"] {
+  transform: scale(1.65);
+  margin-left: 0;
+  margin-top: 4rem;
+}
+.submit-btn {
+  padding: 66rem 156rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 24rem;
+  position: relative;
+  left: 24rem;
+}
+
+footer {
+  margin-top: 318rem;
+  margin-bottom: 200rem;
+}
+footer > .nav-wrapper {
+  display: grid;
+  grid-template-columns: 560rem 950rem auto 180rem 528rem;
+  /*                     logo   fic1    menu fic2   soc  */
+  margin-bottom: 318rem;
+  align-items: center;
+}
+footer > .nav-wrapper > .menu > li {
+  padding: 0;
+}
+.socials {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 42rem;
+  margin-left: 0rem;
+  margin-top: 12rem;
+}
+.socials-item,
+.socials > a {
+  display: inline-block;
+  align-items: flex-start;
+}
+footer > .bottom {
+  display: grid;
+  grid-template-columns: 639rem auto 345rem 420rem 420rem;
+  /*                     made   fic3 privacy terms cookies */
+  gap: 96rem;
+  text-align: left;
+  padding-top: 94rem;
+  margin-bottom: 557rem;
+  align-items: center;
+  font-size: 56rem;
+}
+footer > .bottom div {
+  display: inline-block;
+  white-space: nowrap;
+}

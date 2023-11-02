@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Projects</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <h3>Персональный сайт программиста<br>Вишневецкого Александра</h3>
+      <div class="contacts">
+        <a href="tel:+380503417495" class="phone">+380-50-341-74-95</a>
+        <a href="email:bkm2@ukr.net" class="email">bkm2@ukr.net</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="projects">
+      <div class="container projects__inner">
+        <ul class="menu__list header__menu-list">
+          <li class="menu__list-item">
+            <a href="../projects/candle/index.html" class="menu__list-link">
+              <h3>Сайт магазина свечей</h3>
+            </a>
+            <p>
+              По уроку одного блоггера. Он выложил большой обучающий ролик (на
+              11 часов) на youtube. По figma-макету кого-то третьего. С одной
+              стороны, я был последователем, т.е. работа не самостоятельная. С
+              другой - мне всё понятно, вполне могу повторить. И небольшую
+              часть я делал иначе, как мне понравилось.
+            </p>
+            <details>
+              <summary>Подробности...</summary>
+              <div class="details-container">
+                Я, вслед за блоггером, верстал. Кое-что не получалось. Как-то
+                преодолел, исправил. Были и в figma-макете недостатки. Кое-что
+                можно было сделать проще и единообразнее. Отдельно отмечу
+                проблему слайдера. Он с тех пор (c 2019го года) обновился, вылезли проблемы несовместимости версий.
+                Часть из них преодолел, а часть - нет.
+                (Возможно, блогера зовут Вадим Прокопчук.)
+                <hr>
+                <h4>Ссылки по теме:</h4>
+
+                <a href="../projects/candle/index.html">Сам этот сайт</a>
+                <hr>
+                <a href="https://drive.google.com/file/d/14UBJrCrEjCGkkPIWees_dwtbZbt2K_3v/view">Figma-макет от
+                  блоггера</a>
+                <br>
+                <a
+                  href="https://www.figma.com/file/0jzHD1a1N7IK80QhC5H9uf/HM-candler?type=design&node-id=57%3A314&mode=design&t=y58CuysPMS1NIabQ-1">Figma-макет,
+                  моя расшареная копия</a>
+                <br>
+                <a href="https://www.youtube.com/watch?v=onZV8QqH76g">Ролик, по которому верстал</a>
+                <br>
+              </div>
+            </details>
+          </li>
+
+          <!-- начало п над кот работаю -->
+          <li class="menu__list-item">
+            <a href="../projects/ppws1/index.html" class="menu__list-link">
+              <h3>Сайт-визитка в виде лэндинга</h3>
+            </a>
+            <p>Делал полностью сам. На входе был только чей-то фигма-макет. В нём, кстати, есть небольшие ошибки.
+              Первый мой опыт работы под pixel perfect. Сайт неадаптивный. Впрочем, сделан так, что легко можно эту
+              адаптивность добавить.
+            </p>
+            <details>
+              <summary>Подробности...</summary>
+              <div class="details-container">
+                <hr>
+                <h4>Ссылки по теме:</h4>
+
+                <a href="../projects/candle/index.html">Сам этот сайт</a>
+                <hr>
+                <a href="https://drive.google.com/file/d/14UBJrCrEjCGkkPIWees_dwtbZbt2K_3v/view">Figma-макет от
+                  блоггера</a>
+                <br>
+                <a
+                  href="https://www.figma.com/file/0jzHD1a1N7IK80QhC5H9uf/HM-candler?type=design&node-id=57%3A314&mode=design&t=y58CuysPMS1NIabQ-1">Figma-макет,
+                  моя расшареная копия</a>
+                <br>
+                <a href="https://www.youtube.com/watch?v=onZV8QqH76g">Ролик, по которому верстал</a>
+                <br>
+              </div>
+            </details>
+          </li>
+          <!-- кон п над кот работаю -->
+
+
+
+          <li class="menu__list-item">
+            <a href="luc_tz_1.html " class="menu__list-link">
+              <h3>Тестовое задание "Движение объекта по маршруту"</h3>
+            </a>
+            <p>ТЗ выполнял для поступления на работу.
+              С работой не срослось, т.к. ASP.NET я не знал. Но задание выполнил, оно осталось. Умеренно интересное.</p>
+            <p>Сделал на javascript, прямо внутри html-файла. Если возникло желание глянуть код - прямо из броузера
+              можно. Данные исходного массива там же. Захардкожены.</p>
+            <details>
+              <summary>Подробности...</summary>
+              <div class="details-container">
+
+                <h4>Предметная область</h4>
+
+                <p>Определение положения объекта по заданному маршруту</p>
+                <h4>Условия</h4>
+                <p>Маршрут движущегося объекта задан данными:</p>
+                <pre>
+  <(X0,Y0), V0>,
+    ...
+  <(Xi,Yi), Vi>,
+    ...
+  <(Xn,Yn), Vn>
+                </pre>
+                <p>Где <(Xi,Yi),Vi> - это <(координаты точки на координатной плоскости в метрах), скорость объекта в
+                      точке в м/сек>
+                </p>
+                <p>Отсчет времени в секундах начинается с начала движения объекта (объект начинает движение в 0 секунд).
+                </p>
+
+                <h4>Задача</h4>
+
+                <p>Определить координаты объекта, через время t секунд с момента начала движения объекта</p>
+
+                <h4>Примечание</h4>
+
+                <p>Маршрут должен состоять не менее чем 5-ти узловых точек. Считаем, что объект движется последовательно
+                  от первой к последней точке. Между точками объект движется по прямой со скоростью, заданной в
+                  начальной точке отрезка.</p>
+
+                <p>Маршрут движения не нужно вводить с клавиатуры. Достаточно задать его в программе.</p>
+
+                <h4>Используемые средства</h4>
+
+                <p>Любой язык программирования. Достаточно консольного приложения.</p>
+
+                <hr>
+                <a href="luc_tz_1.html">
+                  <h4>Ссылка на задание ещё раз</h4>
+                </a>
+                <hr>
+                <p>
+                  Можно открыть через контекстное меню код страницы, js-скрипт внутри html, он будет виден. Можно
+                  клацнуть F12, кое-что вывожу в консоль.
+                </p>
+              </div>
+            </details>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+    <a href="../index.html">Вернуться на главную страницу</a>
+  </main>
+</body>
+
+</html>

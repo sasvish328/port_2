@@ -1,0 +1,45 @@
+:root {
+  --color-scheme: dark;
+  --white1: #a9a8b7;
+  --dark1: #484545;
+  --sireneviy: rgb(150, 150, 207);
+  --yeDS: rgb(232, 224, 134);
+  --un-visited-link: rgb(120, 172, 223);
+  --visited-link: rgb(118, 90, 197);
+  --hover-link: rgb(197, 90, 167);
+  --prim-bg-color: black;
+  --prim-color: white;
+  --DS-table-border: #999555;
+  --h2text-color: var(--yeDS);
+}
+
+.header {
+  background-color: var(--dark1);
+  color: var(--prim-color);
+}
+a {
+  color: var(--un-visited-link);
+}
+a:visited {
+  color: var(--visited-link);
+}
+a:hover {
+  color: var(--hover-link);
+}
+
+body {
+  background-color: var(--prim-bg-color);
+  color: var(--prim-color);
+}
+
+h2 {
+  color: var(--h2text-color);
+}
+
+h3 {
+  color: var(--sireneviy);
+}
+
+summary {
+  color: var(--sireneviy);
+}
