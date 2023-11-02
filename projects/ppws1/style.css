@@ -33,9 +33,6 @@ html {
 *::before {
   box-sizing: inherit;
 }
-.skill-item:hover {
-  border-bottom: var(--hover-border-bottom);
-}
 a {
   color: var(--un-visited-link);
   text-decoration: none;
@@ -53,6 +50,11 @@ body {
   color: var(--body);
   font-family: Roboto, sans-serif;
   font-size: var(--body1-fs);
+}
+main,
+html {
+  margin: 0;
+  padding: 0;
 }
 button {
   border: none;
@@ -187,6 +189,8 @@ main > .header > .right-col {
 
 .myskills {
   margin-bottom: 846rem;
+  margin-left: 0;
+  margin-right: 0;
   /* margin-bottom: 848rem; это выч правильно, но... */
 }
 main > section.myskills > .suptitle {
@@ -218,6 +222,9 @@ main > section.myskills > .h2 {
   grid-template-rows: var(--icon-size) 96rem 135rem 64rem 384rem;
   /*                  icon             fic4   h2    fic5  desc */
   margin: 0;
+}
+.skill-item:hover {
+  border-bottom: var(--hover-border-bottom);
 }
 .skill-item > .icon {
   width: var(--icon-size);
