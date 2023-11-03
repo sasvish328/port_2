@@ -1,4 +1,4 @@
-/* :root {
+:root {
   --color-scheme: dark;
   --white1: #a9a8b7;
   --dark1: #484545;
@@ -7,11 +7,13 @@
   --un-visited-link: rgb(120, 172, 223);
   --visited-link: rgb(118, 90, 197);
   --hover-link: rgb(197, 90, 167);
-  --prim-bg-color: black;
-  --prim-color: white;
+  --dark-color: black;
+  --bright-color: white;
   --DS-table-border: #999555;
+  --dark-blue: rgb(35, 21, 67);
   --h2text-color: var(--yeDS);
-} */
+  --accent: rgb(59, 168, 163);
+}
 
 html {
   box-sizing: border-box;
@@ -25,7 +27,7 @@ html {
 
 .header {
   background-color: var(--dark1);
-  color: var(--prim-color);
+  color: var(--bright-color);
 }
 a {
   color: var(--un-visited-link);
@@ -38,10 +40,14 @@ a:hover {
 }
 
 body {
-  background-color: var(--prim-bg-color);
-  color: var(--prim-color);
+  background-color: var(--dark-color);
+  color: var(--bright-color);
   max-width: 500px;
   margin: 1px auto;
+  text-align: center;
+}
+
+main {
   text-align: center;
 }
 
@@ -49,26 +55,24 @@ p {
   text-align: justify;
 }
 
-h2 {
-  color: var(--h2text-color);
-}
-
-h3 {
-  color: var(--sireneviy);
-}
-
 ul {
   list-style: none;
+  padding-left: 0; /* Убирает отступ слева у списка <ul> */
 }
 
+ul li {
+  margin-left: 0; /* Убирает отступ слева у элементов <li> */
+}
 h1 {
   font-size: 30px;
 }
 h2 {
+  color: var(--h2text-color);
   font-size: 24px;
 }
 h3 {
   font-size: 20px;
+  color: var(--sireneviy);
   margin: 5px auto 10px;
 }
 
@@ -121,6 +125,7 @@ thead {
 .contact-item-line {
   font-size: 18px;
   background-color: var(--dark1);
+  color: var(--bright-color);
 }
 
 .part-item {
@@ -148,9 +153,10 @@ table .hidden {
   border: none;
 }
 .pagination.item {
-  border: 1px solid var(--prim-color);
+  border: 1px solid var(--bright-color);
   border-radius: 6px;
   background: var(--dark1);
+  color: var(--bright-color);
   cursor: pointer;
 }
 .pagination.active {
@@ -168,4 +174,10 @@ table .hidden {
   margin-top: 4px;
   width: 11%;
   border-radius: 5px;
+}
+.contacts .list .comtact-item p {
+  text-align: center;
+}
+.accent {
+  color: var(--accent);
 }

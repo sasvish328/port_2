@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta charset="UTF-8">
   <title>Contacts</title>
-  <link rel="stylesheet" href="../css/style.css" />
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/light_colors.css">
+  <link rel="stylesheet" href="../css/dark_colors.css" id="theme-link">
+
 </head>
 
 <body>
   <header class="header">
     <div class="container header__inner">
-      <h3>Персональный сайт программиста<br>Вишневецкого Александра</h3>
+      <h3 class="header-h3">Персональный сайт программиста<br>Вишневецкого Александра</h3>
+      <button class="switcher">Dark / Light<br>Scheme</button>
     </div>
   </header>
 
   <main class="main">
     <section class="contacts">
       <div class="container contacts__inner">
-        <h3>Контакты</h3>
+        <h2>Контакты</h2>
         <div class="contacts">
           <ul class="list">
             <li class="comtact-item">
               <span class="contact-item-line">Любимый мессенжер:</span>&nbsp;&nbsp;<a
                 href="https://t.me/sasvish">Telegram-аккаунт</a>
-              <p>https://t.me/sasvish или <br>
-                @sasvish</p>
+              <p><span class="accent">https://t.me/sasvish</span><br> или <br>
+                <span class="accent">@sasvish</span>
+              </p>
             </li>
             <li class="comtact-item"><span class="contact-item-line">Эл. почта:</span>&nbsp;&nbsp;&nbsp;
               <a href="mailto:bkm2@ukr.net" class="email">bkm2@ukr.net</a>
@@ -45,6 +49,7 @@
     </section>
     <a href="../index.html">Вернуться на главную страницу</a>
   </main>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

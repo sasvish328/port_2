@@ -1,7 +1,49 @@
+// Выбираем кнопку
 const switcher = document.querySelector(".switcher");
-let colScheme = "dark";
-let theme = document.querySelector("#theme-link");
-console.log(theme.getAttribute("href"));
+let theme_link = document.querySelector("#theme-link");
+let theme_full_file_name = theme_link.getAttribute("href");
+let file_path_parts = theme_full_file_name.match(/^(.*\/)?(.+)$/);
+
+let themePath, themeFileName;
+if (file_path_parts) {
+  themePath = file_path_parts[1]; // Путь к файлу
+  themeFileName = file_path_parts[2]; // Имя файла
+}
+
+// Выбираем настройки темы из localStorage
+let currentTheme = localStorage.getItem("theme");
+
+if (!currentTheme) {
+  currentTheme = "dark";
+  localStorage.setItem("theme", currentTheme);
+} else if (currentTheme == "light") {
+  theme_link.setAttribute("href", themePath + "light_colors.css");
+
+  console.log("такой путь к светлой схеме сейчас:");
+  console.log(theme_link.getAttribute("href"));
+} else if (currentTheme == "dark") {
+  console.log("для проформы. Тема дб тёмная.");
+  console.log(theme_link.getAttribute("href"));
+}
+
+switcher.addEventListener("click", function () {
+  console.log("зашли в обработчик");
+  console.log("была тема = " + currentTheme);
+
+  if (currentTheme == "dark") {
+    theme_link.setAttribute("href", themePath + "light_colors.css");
+    currentTheme = "light";
+    localStorage.setItem("theme", "light");
+  } else if (currentTheme == "light") {
+    theme_link.setAttribute("href", themePath + "dark_colors.css");
+    currentTheme = "dark";
+    localStorage.setItem("theme", "dark");
+  }
+  console.log("стала  = " + currentTheme);
+});
+
+// let colScheme = "dark";
+
 // switcher.addEventListener("click", function (e) {
 //   if (colScheme == "dark") {
 //     document.documentElement.style.setProperty("--color-scheme", "light");
@@ -27,35 +69,7 @@ console.log(theme.getAttribute("href"));
 //   }
 // }
 
-switcher.addEventListener("click", function () {
-  // Выбираем таблицу стилей
-  let theme_full_file_name = theme.getAttribute("href");
-  let file_path_parts = theme_full_file_name.match(/^(.*\/)?(.+)$/);
-
-  let themePath, themeFileName;
-
-  if (file_path_parts) {
-    themePath = file_path_parts[1]; // Путь к файлу
-    themeFileName = file_path_parts[2]; // Имя файла
-  }
-
-  // Если текущий адрес содержит "light-theme.css"
-  if (themeFileName == "light_colors.css") {
-    // …то переключаемся на dark"
-    theme.href = themePath + "dark_colors.css";
-    // В противном случае…
-    console.log("переключаемся на тёмную " + themePath + "dark_colors.css");
-  }
-  if (themeFileName == "dark_colors.css") {
-    // …переключаемся на светлую тему"
-    theme.setAttribute("href", themePath + "light_colors.css");
-    // theme.href = themePath + "light_colors.css";
-    console.log("переключаемся на светлую ");
-  }
-
-  console.log(theme.href);
-  theme_full_file_name = theme.getAttribute("href");
-  console.log(theme_full_file_name);
-  file_path_parts = theme_full_file_name.match(/^(.*\/)?(.+)$/);
-  console.log(file_path_parts);
-});
+// можно добавлять класс .light-theme
+// document.body.classList.add("light-theme");
+// тут у меня будет более сложный выбор элементов
+// theme_link.href = themePath + "light_colors.css";
