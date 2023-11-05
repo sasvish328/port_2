@@ -1,5 +1,4 @@
 :root {
-  --color-scheme: dark;
   --white1: #a9a8b7;
   --dark1: #484545;
   --sireneviy: rgb(150, 150, 207);
@@ -7,39 +6,143 @@
   --un-visited-link: rgb(120, 172, 223);
   --visited-link: rgb(118, 90, 197);
   --hover-link: rgb(197, 90, 167);
-  --prim-bg-color: black;
-  --prim-color: white;
-  --DS-table-border: #999555;
-  --h2text-color: var(--yeDS);
+  --dark-color: black;
+  --bright-color: white;
+  --color1: #05b1b1;
+  --color2: #52339a;
 }
 
-html {
-  box-sizing: border-box;
+header,
+footer,
+section {
+  padding: 100px 0;
+}
+header {
+  padding: 200px 0;
+}
+header,
+footer {
+  background: url(../img/pattern.png), var(--color1);
+  background: url(../img/pattern.png),
+    linear-gradient(to right, var(--color1) 0%, var(--color2) 100%);
+  background-size: contain;
+}
+.itd_play {
+  background-color: var(--color1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 30px auto;
+  transition: all 0.2s ease;
+}
+.itd_pLay:hover {
+  background-color: var(--color2);
+}
+.itd_triange {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top-width: 10px;
+  border-right-width: 2px;
+  border-bottom-width: 10px;
+  border-left-width: 10px;
+  border-color: transparent transparent transparent var(--bs-white);
+}
+.btn-itd {
+  display: block;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 8px 30px;
+  color: var(--bs-white);
+  background-color: var(--color2);
+}
+.btn-itd:hover {
+  color: var(--bs-white);
+  background-color: var(--color1);
+}
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* о курсе  */
+.about,
+.author,
+.shedule {
+  background-color: #ddd;
+}
+.about i {
+  font-size: 25px;
+  color: var(--color2);
+}
+.itd-circle {
+  margin: 0 auto 15px;
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--color2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.line {
+  width: 100px;
+  height: 3px;
+  background-color: var(--color1);
+  margin: 15px auto 30px;
+}
+/* Для кого курс */
+.forwhom h5 {
+  padding: 50px;
+  border: 3px solid var(--color1);
+}
+/* Программа курса (аккордеон) */
+.accordion-button:not(.collapsed) {
+  color: var(--bs-white);
+  background-color: var(--color2);
+  /* box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%); */
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: inherit;
+/* Процесс обучения  */
+.leaning h5 {
+  padding: 25px;
+  border: 3px solid var(--color1);
 }
-
-a {
-  color: var(--un-visited-link);
+/* Об авторе */
+.author {
+  padding-bottom: 0;
 }
-a:visited {
-  color: var(--visited-link);
+.itd_img {
+  max-width: 260px;
 }
-a:hover {
-  color: var(--hover-link);
+/* Цвета */
+.color1 {
+  color: var(--color1);
 }
-
-body {
-  background-color: var(--prim-bg-color);
-  color: var(--prim-color);
-  text-align: center;
-  font-size: 5rem;
+.color2 {
+  color: var(--color2);
 }
-
-ul {
-  /* list-style: none; */
+.bg1 {
+  background-color: var(--color1);
+}
+.bg2 {
+  background-color: var(--color2);
 }

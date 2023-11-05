@@ -1,0 +1,11 @@
+
+На всякий сл. мб пригодится. 
+<script src=" https://cdn.jsdelivr.net/npm/fontello-installer@0.0.2/lib/fontello.min.js "></script>
+
+<!-- Сайт по которому мы верстаем: https://morphismail.github.io/video_course_basic/ -->
+Точнее, образец, который мы копируем. 
+
+А верстаем по ролику на ютубе:
+https://www.youtube.com/watch?v=CvMxvb2D8Iw
+
+
