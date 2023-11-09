@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,15 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
   <header class="nav-wrapper">
-    <div class="logo">
-      <img src="./Logo.png" alt="">
+    <div class="logo img-container">
+      <img class="contain-img" src="./img/Logo.png" alt="">
     </div>
     <div class="fic1"></div>
     <ul class="menu">
@@ -44,8 +44,8 @@
         <div class="fic3"></div>
         <button class="get-btn">Get In Touch</button>
       </div>
-      <div class="right-col">
-        <img src="./headerGroup.png" alt="headerGroup">
+      <div class="right-col img-container">
+        <img src="./img/headerGroup.png" alt="headerGroup" class="contain-img">
       </div>
     </section>
     <section class="myskills" id="skills">
@@ -53,9 +53,8 @@
       <h2 class="h2">My Expertise</h2>
       <div class="skill-container">
         <div class="skill-item">
-          <!-- 405.333 x 370.333 --- pad=32 -->
-          <div class="icon">
-            <img src="./icon1_strategy.png" alt="">
+          <div class="icon img-container">
+            <img src="./img/icon1_strategy.png" alt="" class="contain-img">
           </div>
           <h3 class="skill-name h3">Strategy & Direction</h3>
           <div class="fic5"></div>
@@ -63,8 +62,8 @@
             elementum tristique.</p>
         </div>
         <div class="skill-item">
-          <div class="icon">
-            <img src="./icon2_Branding2.png" alt="" class="icon">
+          <div class="icon img-container">
+            <img src="./img/icon2_Branding2.png" alt="" class="icon contain-img">
           </div>
           <h3 class="skill-name h3">Branding & Logo</h3>
           <div class="fic5"></div>
@@ -72,8 +71,8 @@
             elementum tristique.</p>
         </div>
         <div class="skill-item">
-          <div class="icon">
-            <img src="./icon3_UI_UX_Design3.png" alt="" class="icon">
+          <div class="icon img-container">
+            <img src="./img/icon3_UI_UX_Design3.png" alt="" class="icon contain-img">
           </div>
           <h3 class="skill-name h3">UI & UX Design</h3>
           <div class="fic5"></div>
@@ -81,8 +80,8 @@
             elementum tristique.</p>
         </div>
         <div class="skill-item">
-          <div class="icon">
-            <img src="./icon4_Webflow2.png" alt="" class="icon">
+          <div class="icon img-container">
+            <img src="./img/icon4_Webflow2.png" alt="" class="icon contain-img">
           </div>
           <h3 class="skill-name h3">Webflow Development</h3>
           <div class="fic5"></div>
@@ -92,7 +91,9 @@
       </div>
     </section>
     <section class="about" id="about">
-      <div class="left-col"><img src="./AboutMe.png" alt=""></div>
+      <div class="left-col img-container">
+        <img class="contain-img" src="./img/AboutMe.png" alt="">
+      </div>
       <div class="right-col">
         <h4 class="suptitle">About</h4>
         <h2 class="h2">About Me</h2>
@@ -121,42 +122,44 @@
         </div>
         <div class="right-col">
           <button class="dribble">
-            <img src="./portfolio_icon.svg" alt="">
+            <div class="img-container">
+              <img src="./img/portfolio_icon.svg" alt="" class="contain-img">
+            </div>
             <p class="body-02">Visit My Dribbble</p>
           </button>
         </div>
       </div>
       <div class="content">
         <div class="item">
-          <img src="./portfolio1.png" alt="" class="image">
+          <img src="./img/portfolio1.png" alt="">
           <div class="text-info">
             <h3 class="project-name">Ahuse</h3>
             <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
               eros.</p>
             <button class="project-link-btn"><span class="label">View In Dribbble</span>
-              <img src="./port_btn_arrow.svg" alt="">
+              <img src="./img/port_btn_arrow.svg" alt="">
             </button>
           </div>
         </div>
         <div class="item">
-          <img src="./portfolio2.png" alt="" class="image">
+          <img src="./img/portfolio2.png" alt="" class="image">
           <div class="text-info">
             <h3 class="project-name">App Dashboard</h3>
             <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
               eros.</p>
             <button class="project-link-btn">View In Dribbble
-              <img src="./port_btn_arrow.svg" alt="">
+              <img src="./img/port_btn_arrow.svg" alt="">
             </button>
           </div>
         </div>
         <div class="item">
-          <img src="./portfolio3.png" alt="" class="image">
+          <img src="./img/portfolio3.png" alt="" class="image">
           <div class="text-info">
             <h3 class="project-name">Easy Rent</h3>
             <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
               eros.</p>
             <button class="project-link-btn">View In Dribbble
-              <img src="./port_btn_arrow.svg" alt="">
+              <img src="./img/port_btn_arrow.svg" alt="">
             </button>
           </div>
         </div>
@@ -168,16 +171,18 @@
       <div class="content">
         <div class="card">
           <div class="stars">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
           </div>
           <p class="text">&#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
             elementum tristique. Duis cursus, mi quis viverra.</p>
           <div class="client">
-            <img src="./avatar1.png" alt="" class="avatar">
+            <div class="img-container">
+              <img src="./img/avatar1.png" alt="" class="avatar contain-img">
+            </div>
             <div class="text">
               <p class="suptitle">Dianne Russell</p>
               <p class="company">Starbucks</p>
@@ -186,16 +191,18 @@
         </div>
         <div class="card">
           <div class="stars">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
           </div>
           <p class="text">&#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
             elementum tristique. Duis cursus, mi quis viverra.</p>
           <div class="client">
-            <img src="./avatar2.png" alt="" class="avatar">
+            <div class="img-container">
+              <img src="./img/avatar2.png" alt="" class="avatar contain-img">
+            </div>
             <div class="text">
               <p class="suptitle">Kristin Watson</p>
               <p class="company">Louis Vuitton</p>
@@ -204,16 +211,18 @@
         </div>
         <div class="card">
           <div class="stars">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
-            <img src="./star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
+            <img src="./img/star.svg" alt="">
           </div>
           <p class="text">&#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
             elementum tristique. Duis cursus, mi quis viverra.</p>
           <div class="client">
-            <img src="./avatar3.png" alt="" class="avatar">
+            <div class="img-container">
+              <img src="./img/avatar3.png" alt="" class="avatar contain-img">
+            </div>
             <div class="text">
               <p class="suptitle">Kathryn Murphy</p>
               <p class="company">McDonald's</p>
@@ -272,11 +281,10 @@
       </form>
     </section>
   </main>
-
   <footer>
     <div class="nav-wrapper">
-      <div class="logo">
-        <img src="./Logo.png" alt="">
+      <div class="logo img-container">
+        <img src="./img/Logo.png" alt="" class="contain-img">
       </div>
       <div class="fic1"></div>
       <ul class="menu">
@@ -290,16 +298,16 @@
       <div class="fic2"></div>
       <div class="socials">
         <a class="box" href="#">
-          <div class="socials-item"><img src="./Facebook.svg" alt=""></div>
+          <div class="socials-item"><img src="./img/Facebook.svg" alt=""></div>
         </a>
         <a class="box" href="#">
-          <div class="socials-item"><img src="./Instagram.svg" alt=""></div>
+          <div class="socials-item"><img src="./img/Instagram.svg" alt=""></div>
         </a>
         <a class="box" href="#">
-          <div class="socials-item"><img src="./Twitter.svg" alt=""></div>
+          <div class="socials-item"><img src="./img/Twitter.svg" alt=""></div>
         </a>
         <a class="box" href="#">
-          <div class="socials-item"><img src="./LinkedIn.svg" alt=""></div>
+          <div class="socials-item"><img src="./img/LinkedIn.svg" alt=""></div>
         </a>
       </div>
     </div>
@@ -312,7 +320,7 @@
       <div class="cookies">Cookies Settings</div>
     </div>
   </footer>
-  <script src="./main.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
