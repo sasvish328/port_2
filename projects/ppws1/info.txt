@@ -137,16 +137,15 @@
   width: 5px;
   height: 5px;
   z-index: 3;
+  position: fixed;
 }
 
 .left-marker {
-  position: fixed;
   background-color: red;
   left: var(--left-position);
 }
 .right-marker {
   left: calc(var(--left-position) + 500px);
-  position: fixed;
   background-color: blue;
 }
 

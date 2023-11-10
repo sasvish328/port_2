@@ -16,7 +16,7 @@
   --icon-size: 240rem;
   --dribble-icon-size: 96rem;
   --pf-content-gap: 128rem;
-  --real-width: 5248rem; /* ~1749.33px; */
+  --real-width: 5248rem;
   --hover-border-bottom: 12rem solid var(--primary);
   --unused-page-color: #1a1a1a;
   --star-color: #006b6a;
@@ -46,11 +46,13 @@ a:hover {
 body {
   padding: 0 256rem;
   margin: 0;
+  margin-top: -80rem;
+  /* вынужденная мера. что-то сбивается в firefox */
   background-color: var(--bg-shade);
   color: var(--body);
   font-family: Roboto, sans-serif;
   font-size: var(--body1-fs);
-  width: 1920px;
+  width: 5760rem;
 }
 main,
 html {
@@ -62,6 +64,7 @@ button {
   padding: 0;
   border-radius: 0;
   cursor: pointer;
+  font-family: Roboto, sans-serif;
   font-size: var(--body1-fs);
   white-space: nowrap;
 }
@@ -87,11 +90,11 @@ ul {
   line-height: 150%;
 }
 .h2 {
-  padding: 64rem auto 96rem; /* 21,333px --- 32px; */
+  padding: 64rem auto 96rem;
 }
 
 header {
-  margin: 94rem 0 482rem;
+  margin: 94rem 0 474rem;
   background-color: var(--dark1);
   color: var(--prim-color);
   max-width: var(--real-width);
@@ -133,11 +136,11 @@ main > .header {
   grid-template-columns: 2372rem 2752rem;
   /*                   left-col right-col  */
   align-items: flex-start;
-  margin-bottom: 827.5rem;
+  margin-bottom: 844rem;
 }
 main > .header > .left-col {
   display: grid;
-  grid-template-rows: 305rem 96rem 64rem 516rem 64rem 220rem 157rem 208rem;
+  grid-template-rows: 305rem 96rem 64rem 516rem 64rem 220rem 160rem 208rem;
   /*                   fic0   sup  fic1     h1  fic2   sub
     fic3   button */
   /* align-items: flex-start; */
@@ -157,7 +160,6 @@ main > .header > .left-col > .h1 {
   line-height: 120%;
 }
 main > .header > .left-col > .subtitle {
-  /* margin-bottom: 96rem; */
   margin: 0;
   display: block;
   width: 1864rem;
@@ -166,12 +168,12 @@ main header > .left-col > .fic3 {
   height: 160rem;
 }
 .get-btn {
-  padding: 56 auto; /* 18.67px */
+  padding: 56 auto;
   background-color: var(--primary);
   color: white;
-  width: 512rem; /* == 170.67px; */
-  height: 208rem; /* == 69.33px; */
-  border-radius: 16rem; /* == 5.33px; */
+  width: 512rem;
+  height: 208rem;
+  border-radius: 16rem;
   text-align: center;
   font-size: 64rem;
   font-weight: 400;
@@ -190,10 +192,9 @@ main header > .left-col > .fic3 {
 }
 
 .myskills {
-  margin-bottom: 846rem;
+  margin-bottom: 850rem;
   margin-left: 0;
   margin-right: 0;
-  /* margin-bottom: 848rem; это выч правильно, но... */
 }
 main > section.myskills > .suptitle {
   margin-bottom: 64rem;
@@ -201,7 +202,7 @@ main > section.myskills > .suptitle {
 .h2 {
   margin: 0;
   font-weight: 700;
-  font-size: 192rem; /* == 64px; */
+  font-size: 192rem;
   line-height: 120%;
 }
 main > section.myskills > .h2 {
@@ -218,7 +219,7 @@ main > section.myskills > .h2 {
 .skill-container > .skill-item {
   width: 100%;
   padding: 96rem;
-  border-radius: 32rem; /* == 10.7px; */
+  border-radius: 32rem;
   /* vertical-align: center; */
   display: grid;
   grid-template-rows: var(--icon-size) 96rem 135rem 64rem 384rem;
@@ -238,7 +239,7 @@ main > section.myskills > .h2 {
 }
 .skill-name.h3 {
   font-weight: 700;
-  font-size: 96rem; /* == 32px; */
+  font-size: 96rem;
   line-height: 140%;
   white-space: nowrap;
 }
@@ -252,14 +253,14 @@ main > section.myskills > .h2 {
   justify-content: start;
 }
 .about > .left-col {
-  width: 2440rem; /* == 813.333px; */
-  height: 2988rem; /* == 996px; */
+  width: 2440rem;
+  height: 2988rem;
 }
 .about > .right-col {
   align-items: flex-start;
   justify-content: start;
   padding-left: 48rem;
-  width: 2464rem; /* == 821.333px; */
+  width: 2464rem;
   display: flex;
   flex-wrap: wrap;
   margin-left: 296rem;
@@ -270,8 +271,8 @@ main > section.myskills > .h2 {
   margin-top: 889rem;
 }
 .about > .right-col > .h2 {
-  margin-top: 32rem; /* == 10.67px; */
-  margin-bottom: 96rem; /* == 32px; */
+  margin-top: 32rem;
+  margin-bottom: 96rem;
   text-align: left;
 }
 .about > .right-col p {
@@ -286,7 +287,7 @@ main > section.myskills > .h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 320rem; /* 106.67px; */
+  margin-bottom: 320rem;
 }
 .portfolio > .header > .left-col {
   display: inline-block;
@@ -298,18 +299,18 @@ main > section.myskills > .h2 {
   margin-right: 0rem;
 }
 .portfolio > .header > .left-col > .h2 {
-  margin-top: 64rem; /* 21.33px; */
+  margin-top: 64rem;
 }
 .dribble {
-  width: 755rem; /* 251.667px; */
-  height: 224rem; /* 74.667px; */
-  border-radius: 32rem; /* 10.7px; */
+  width: 755rem;
+  height: 224rem;
+  border-radius: 32rem;
   background-color: var(--dribble);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 48rem; /* 16px; */
+  gap: 48rem;
 }
 .dribble > img,
 .dribble > p {
@@ -317,10 +318,6 @@ main > section.myskills > .h2 {
   padding-left: 0;
   padding-right: 0;
 }
-/* .dribble > img {
-  width: var(--dribble-icon-size);
-  height: var(--dribble-icon-size);
-} */
 .dribble > .img-container {
   width: var(--dribble-icon-size);
   height: var(--dribble-icon-size);
@@ -335,8 +332,7 @@ main > section.myskills > .h2 {
   display: flex;
   flex-wrap: wrap;
   width: calc(((var(--real-width) - 2 * var(--pf-content-gap)) / 3));
-  /* box-shadow: 0px 0px 96rem 0px rgba(0, 100, 100, 0.95); */
-  box-shadow: 0px 0px 96rem 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 96rem 0 rgba(0, 0, 0, 0.15);
 }
 .portfolio > .content > .item > img {
   height: 1200rem;
@@ -365,12 +361,11 @@ main > section.myskills > .h2 {
   gap: 48rem;
   border-bottom: 4rem solid var(--primary);
   background-color: var(--bg-shade);
-  padding-bottom: 40rem; /* 10.67px; */
+  padding-bottom: 44rem;
   font-size: 56rem;
 }
-.portfolio .project-link-btn > .label,
 .portfolio .project-link-btn > img {
-  display: inline-block;
+  margin-top: 8rem;
 }
 
 .testimonials {
@@ -380,7 +375,7 @@ main > section.myskills > .h2 {
   margin-bottom: 66rem;
 }
 .testimonials > .h2 {
-  margin-bottom: 320rem; /* 106.67px; */
+  margin-bottom: 320rem;
 }
 .testimonials > .content {
   display: flex;
@@ -401,7 +396,10 @@ main > section.myskills > .h2 {
   padding-top: calc(var(--pf-content-gap) - 20rem);
   line-height: 150%;
   margin-top: 0;
-  margin-bottom: 30rem;
+  margin-bottom: 128rem;
+}
+.testimonials > .content > .card:first-child {
+  padding-left: 120rem;
 }
 .testimonials > .content > .card > .client {
   display: flex;
@@ -429,20 +427,17 @@ main > section.myskills > .h2 {
 }
 
 main > .contact {
-  margin-top: 145rem;
+  margin-top: 142rem;
   padding: 448rem 1088rem;
   text-align: center;
 }
 main > .contact > .suptitle {
-  margin-left: 50rem;
   margin-bottom: 64rem;
 }
 main > .contact > .h2 {
-  margin-left: 50rem;
   margin-bottom: 100rem;
 }
 main > .contact > .subtitle {
-  margin-left: 46rem;
   margin-bottom: 198rem;
 }
 
@@ -461,7 +456,7 @@ main > .contact > .subtitle {
 }
 label {
   display: block;
-  margin-bottom: -10px;
+  margin-bottom: -30rem;
 }
 .first-name {
   grid-area: first-name;
@@ -485,10 +480,17 @@ label {
 .choose-topic-wrapper,
 textarea {
   width: 100%;
-  padding: 56rem;
+  padding: 54rem;
   border: 4rem solid var(--primary);
   border-radius: 24rem;
   font-size: 64rem;
+  font-family: Roboto, sans-serif;
+}
+.begin-form-box .choose-topic {
+  margin-bottom: 4rem;
+}
+.begin-form-box .choose-topic-wrapper {
+  padding-top: 50rem;
 }
 .message {
   grid-area: message;
@@ -502,16 +504,27 @@ textarea {
   border: none;
   padding: 0;
   margin: 0;
-  margin-left: -26rem;
+  margin-left: -10rem;
 }
-select {
+.choose-topic-select {
+  font-family: Roboto, sans-serif;
   font-size: 64rem;
+}
+.message > label {
+  margin-bottom: -36rem;
+}
+.message {
+  margin-bottom: 10rem;
 }
 textarea {
   padding-top: 42rem;
-  padding-bottom: 70rem;
+  padding-bottom: 82rem;
+  padding-left: 48rem;
+  font-family: Roboto, sans-serif;
+  font-size: 64rem;
 }
 textarea::placeholder {
+  font-family: Roboto, sans-serif;
   font-size: 64rem;
   font-weight: 400;
   text-align: left;
@@ -527,6 +540,7 @@ textarea::placeholder {
   display: flex;
   justify-items: start;
   margin-bottom: 14rem;
+  margin-left: 3rem;
 }
 form .begin-form-box .acception input {
   width: 64rem;
@@ -538,9 +552,9 @@ form .begin-form-box .acception label {
   margin-top: -10rem;
 }
 .acception input[type="checkbox"] {
-  transform: scale(1.65);
-  margin-left: 0;
-  margin-top: 4rem;
+  transform: scale(1.57);
+  margin-left: -3rem;
+  margin-top: 6rem;
 }
 .submit-btn {
   padding: 66rem 156rem;
@@ -549,6 +563,7 @@ form .begin-form-box .acception label {
   border-radius: 24rem;
   position: relative;
   left: 24rem;
+  margin-left: -54rem;
 }
 
 footer {
@@ -585,6 +600,7 @@ footer > .bottom {
   text-align: left;
   padding-top: 94rem;
   margin-bottom: 557rem;
+  margin-top: 40rem;
   align-items: center;
   font-size: 56rem;
 }
