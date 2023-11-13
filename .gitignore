@@ -12,9 +12,13 @@ build/
 
 # Игнорировать файл doc/notes.txt, но не файл doc/server/arch.txt
 doc/*.txt
+projects/tz_xxx1/ss/*.*
 
 # Игнорировать все .txt файлы в каталоге doc/
 doc/**/*.txt
+./**/*.zip
+./**/*.rar
+
 
 ./**/*bootstrap* 
 ./**/*min*
