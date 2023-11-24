@@ -7,82 +7,88 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> -->
+  <!-- это было для замены, когда не знал названия используемых шрифтов -->
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
-
   <link rel="stylesheet" href="css/style.css">
-
-
 </head>
 
 <body>
   <header>
-    <div class="ooo-pic">ooooooo</div>
-    <nav>
-      <div class="menu">
-        <div class="search-container img-container menu-item">
-          <a href="#" class="contain-img">
-            <img src="/img/magnifier_glass22.svg" alt="magnifier_glass22">
-          </a>
-        </div>
-        <div class="word menu-item"><a href="#">Location</a></div>
-        <div class="word menu-item"><a href="#">About us</a></div>
-        <div class="img-container hi-container">
-          <img src="/img/hi.jpg" alt="hi" class="contain-img">
-        </div>
-        <div class="word menu-item"><a href="#">Contact</a></div>
-        <div class="word menu-item"><a href="#">Home</a></div>
-        <div class="burger menu-item">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <div class="ooo-pic img-container">
+      <img src="./img/ooo44.png" alt="" class="inner-img">
+    </div>
+    <div id="dupLine"></div>
+    <div class="menu">
+      <div class="search-container img-container menu-item">
+        <img class="inner-img" src="./img/search_white44.png" alt="lupa">
       </div>
-    </nav>
-    <hr>
+
+      <div class="menu-item"><a href="#">Location</a></div>
+      <div class="menu-item"><a href="#">About us</a></div>
+      <div class="img-container logo-container">
+        <img src="img/logo44.png" alt="hi" class="inner-img">
+      </div>
+      <div class="menu-item"><a href="#">Contact</a></div>
+      <div class="menu-item"><a href="#">Home</a></div>
+      <div class="burger menu-item">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
+  <div class="header-end-line"></div>
+  <!-- переделать на извлечение из основного меню можно при желании -->
+  <div class="pop-up-menu">
+    <nav>
+      <ul>
+        <li><a href="#">Location</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <main>
     <div class="container">
-      <div class="left-col flex-col">
-        <div class="top-pict">
-          <!-- <img src="/img/xx.jpg" alt=""> -->
-          XX
+      <div class="left-col">
+        <div class="top-pict img-container">
+          <img src="/img/xx44.png" alt="" class="inner-img">
         </div>
-        <div class="col-header">
+        <div class="col-subtitle">
           Do you want to get fit?
         </div>
         <div class="descr">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, quasi qui.
+          Lorem ipsum dolor sit amet consec tetuer adipiscing elit sed dyam.
         </div>
         <button class="btn"><a href="#">Read more</a></button>
       </div>
-      <div class="media-col flex-col">
+      <div class="media-col">
         <div class="thick-header">Fitness gym center</div>
-        <div class="media-pic img-container">
-          <img src="/img/main.jpg" alt="main.jpg" class="contain-img">
+        <div class="media-pic-container img-container">
+          <img src="img/media-pic-cropped.png" alt="media-pic-cropped" class="media-pic-cropped inner-img">
         </div>
       </div>
-      <div class="right-col flex-col">
-        <div class="top-pict">
-          <!-- <img src="/img/cc.jpg" alt=""> -->
-          &lt;&lt;
+      <div class="right-col">
+        <div class="top-pict img-container">
+          <img src="/img/ugolki44.png" alt="" class="inner-img">
         </div>
-        <div class="col-header">
+        <div class="col-subtitle">
           Start training today
         </div>
         <div class="descr">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, quasi qui.
+          Lorem ipsum dolor sit amet consec tetuer adipiscing elit sed diam.
         </div>
         <button class="btn"><a href="#">Join now</a></button>
       </div>
     </div>
   </main>
 
-  <script src="./js/main.js"></script>
+  <script src="./main.js"></script>
 </body>
 
 </html>

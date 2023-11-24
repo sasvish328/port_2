@@ -53,5 +53,77 @@ btn.addEventListener("click", function() {
 
 - - - - -
 ===========
+изменение цвета svg-файлов через js/jQuery
+
+(function ($) {
+  $(document).ready(function () {
+    $('.content img, .menu-list img').each(function () {
+            let $img = $(this);
+            let imgClass = $img.attr('class');
+            let imgURL = $img.attr('src');
+            if (imgURL) {
+                $.get(imgURL, function (data) {
+                    let $svg = $(data).find('svg');
+                    if (typeof imgClass !== 'undefined') {
+                        $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                    }
+                    $svg = $svg.removeAttr('xmlns:a').attr('style', function (i, style) {
+                        return style && style.replace(/enable-background[^;]+;?/g, '');
+                    });
+                    if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                        $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'));
+                    }
+                    if ($svg.attr('viewBox') && !$svg.attr('height') && !$svg.attr('width')) {
+                        let width = $svg.attr("viewBox").split(' ')[2];
+                        let height = $svg.attr("viewBox").split(' ')[3];
+                        $svg.attr('width', width);
+                        $svg.attr('height', height);
+                    }
+                    $img.replaceWith($svg);
+                }, 'xml');
+            }
+        });
+  });
+})(jQuery);
+
+.content svg {
+    width:70px;
+}
+svg .grn {
+  fill: red;
+  transition: 0.3s;
+}
+svg:hover .grn {
+  fill: green;
+}
+.menu-list {
+  padding: 0;
+  margin: 0;
+}
+.menu-list svg {
+  width: 30px;
+}
+.menu-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+<link rel="stylesheet" href="css/style.css">
+
+<div class="content">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Dollar_sign_in_circle_cleaned_%28PD_version%29.green.svg">
+</div>
+
+<ul class="menu-list">
+  <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Dollar_sign_in_circle_cleaned_%28PD_version%29.green.svg">Строка 1</li>
+  <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Dollar_sign_in_circle_cleaned_%28PD_version%29.green.svg">Строка 2</li>
+  <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Dollar_sign_in_circle_cleaned_%28PD_version%29.green.svg">Строка 3</li>
+  <li><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Dollar_sign_in_circle_cleaned_%28PD_version%29.green.svg">Строка 4</li>
+</ul>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></s
+
+======================

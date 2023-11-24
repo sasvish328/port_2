@@ -132,7 +132,7 @@
 
 .left-marker,
 .right-marker {
-  top: 222px;
+  top: 200px;
   --left-position: 450px;
   width: 5px;
   height: 5px;
