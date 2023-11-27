@@ -1,9 +1,16 @@
 :root {
   --primary: #5e3bee;
-  --bg-shade: #f5fcff;
   --dribble: #e62872;
+  /* --bg-shade: #f5fcff;
   --heading-color: #282938;
-  --body: #1c1e53;
+  --body: #1c1e53; */
+  
+  /* временные цвета */
+  --bg-shade: #000;
+  --heading-color: #282938;
+  --body: #fff;
+  /* временные цвета */
+
   /* моё */
   font-size: 0.3333333333px;
   --un-visited-link: var(--body);
@@ -189,6 +196,7 @@ main header > .left-col > .fic3 {
   width: 100%;
   object-fit: contain;
   vertical-align: middle;
+  /* object-position: center top; */
 }
 
 .myskills {

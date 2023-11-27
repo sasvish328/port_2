@@ -127,3 +127,8 @@ svg:hover .grn {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></s
 
 ======================
+
+// работа с CSS-переменными
+// let tt = document.querySelector(':root');
+// let tt3 = getComputedStyle(tt).getPropertyValue('--cur-body-width');
+// console.log(tt3);

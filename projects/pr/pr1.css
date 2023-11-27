@@ -1,17 +1,10 @@
 :root {
   --bg-grey: rgb(47, 47, 47);
   --text-white: rgb(245, 245, 245);
-  --cur-body-width: 90vw;
+  --cur-body-width: 85vw;
   font-size: 16px;
   background-color: black;
   /* временная часть  */
-  --bg-grey: rgba(47, 47, 47, 0.8);
-  --text-white: rgb(245, 245, 245);
-  --ye: rgb(214, 247, 30);
-  --logo-width: 9.48rem;
-  --logo-height: 4.79rem;
-  --btn-height: 4.18rem;
-  --cur-body-width: 93vw;
 
 }
 
@@ -23,73 +16,41 @@ body {
   background-color: var(--bg-grey);
   color: var(--text-white);
 }
-.left-col {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex: 0 0 25%;
-  padding: 1vw;
-  min-height: 50.4rem;
-}
-.top-pict {
-  width: 13.03rem;
-  /* 386px; */
-  height: 5.6rem;
-  /* 166px */
-  text-align: center;
-  margin-bottom: 5rem;
-  margin-top: 2.36rem;
-  align-self: center;
-}
-.top-pict > img {
-  object-fit: contain;
-}
-.col-subtitle {
-  color: var(--ye);
-  font-size: 2.25rem;
-  margin-bottom: 0.6rem;
-}
-.descr {
-  font-size: 1.4rem;
-  margin-bottom: 5.4rem;
-}
-.btn {
-  font-size: 1.5rem;
-  background-color: var(--ye);
-  color: var(--bg-grey);
-  height: var(--btn-height);
-  width: 75%;
-  border-radius: calc(var(--btn-height) / 2);
-  text-align: center;
-  line-height: var(--btn-height);
-  display: inline-block;
-  text-decoration: none;
-}
-.btn a {
-  display: block;
-  margin-top: -0.3rem;
-  color: var(--bg-grey);
-  background-color: rgba(0, 0, 0, 0);
-}
-.btn:hover {
-  background-color: var(--text-white);
-  cursor: pointer;
-}
-.btn a:hover {
-  background-color: rgba(0, 0, 0, 0);
+
+input:invalid {
+  border: 2px dashed red;
 }
 
+input:valid {
+  border: 2px solid blue;
+}
 
+/* 
+input:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+} */
 
-.img-container {
+sup {
+  color: red;
+  display: none;
 }
-.inner-img {
+
+/* input::after { */
+label::after {
+  color: green;
+  content: "<- теперь это *просто* потрясающе!";
 }
-.col-subtitle {
+
+    /* Используем свойство vertical-align со значением sub или super.
+    Немного уменьшаем размер шрифта с помощью font-size. */
+
+.exciting-text::after {
+  content: "<- теперь это *просто* потрясающе!";
+  color: green;
 }
-.descr {
+
+.boring-text::after {
+  content: "<- СКУЧНО!";
+  color: red;
 }
-.btn {
-}
+

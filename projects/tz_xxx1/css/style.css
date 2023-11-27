@@ -8,11 +8,9 @@
   --menu-img-size: calc(2.26rem * 0.7);
   --logo-width: calc(9.48rem * 0.7);
   --logo-height: calc(4.79rem * 0.7);
-  --btn-height: 4.18rem;
+  --btn-height: 3rem;
   font-size: 16px;
   --cur-body-width: 85vw;
-  /* --cur-body-width: 75rem; */
-  /* --cur-body-width: 1390px; */
   /* зона для burger */
   --burger-line-height: 0.2rem; 
   --burger-size: calc(2.63rem * 0.7);
@@ -20,7 +18,7 @@
   --burger-hover-color: var(--ye);
   --menu-sides-padding: 0;
   --pop-up-menu-width: 50%;
-  --min-height-main-col: 42rem;
+  --min-height-main-col: 34rem;
 }
 
 html {
@@ -40,13 +38,10 @@ body {
   margin: 0 1vw;
   margin-left: 50px;
   width: var(--cur-body-width);
-  /*   
-  background-image: url('../img/Texture44.png'); 
+  background-image: url('../img/background_w_texture.png'); 
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; */
-
-  background-color: var(--bg-grey);
+  background-position: center;
   color: var(--text-white);
   font-family: "Poppins", sans-serif;
 }
@@ -62,16 +57,15 @@ body {
   object-fit: contain;
   vertical-align: middle;
 }
-
 .ooo-pic {
   width: 17%;
   height: 1.5rem;
   margin: 0 auto; 
   margin-bottom: 3.6rem; 
-  justify-content: center;
-  display: flex;
 }
-
+.ooo-pic > img{
+  object-position: center top;
+}
 #dupLine {
   position: fixed;
   /* z-index: 5; */
@@ -86,9 +80,6 @@ body {
   padding-bottom: 1.87rem;
   font-size: 1.5rem;
 }
-.menu * {
-  background-color: var(--bg-grey);
-}
 .search-container,
 .search-container > img {
   width: var(--menu-img-size);
@@ -101,8 +92,6 @@ body {
 }
 .menu-item {
   display: inline-block;
-  background: var(--bg-grey);
-  /* position: relative; */
 }
 .menu-item:last-child {
   margin-right: 0;
@@ -130,7 +119,6 @@ body {
   cursor: pointer;
   top: 0;
   left: 0;
-  background: var(--bg-grey);
 }
 .burger span {
   width: 100%;
@@ -182,6 +170,12 @@ body {
 .pop-up-menu li {
   list-style-type: none;
 }
+.pop-up-menu li>a {
+  color: var(--text-white);
+}
+.pop-up-menu li>a:hover {
+  color: var(--ye);
+}
 
 .header-end-line {
   width: 100%;
@@ -204,31 +198,47 @@ main > .container {
   justify-content: flex-start;
   align-items: flex-start;
   flex: 0 0 25%;
-  padding: 1vw;
   min-height: var(--min-height-main-col);
+}
+.left-col {
+  margin-top: 1vw;
+  padding-right: 7vw;
+  padding-left: 1vw;
+}
+.left-col .top-pict {
+  margin-left: -0.2vw;
+  margin-top: 2.3vw;
+  margin-bottom: 70px;
+  /*  margin-bottom: 4vw; !! m545 не работает! ?? почему?? */
+}
+.left-col .descr {
+  margin-left: -0.85rem;
+}
+.left-col .btn {
+  margin-left: -0.85rem;
 }
 .media-col {
   flex: 0 0 50%;
   min-height: var(--min-height-main-col);
   position: relative;
   width: calc(var(--cur-body-width) / 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
 }
 .media-pic-container {
-  position: absolute;
-  width: calc(var(--cur-body-width) / 2);
+  width: calc(var(--cur-body-width) / 1.79);
+  left: -2.5vw;
   z-index: 2;
-  top: 22%;
-  left: 0;
-  z-index: 3;
+  position: absolute;
+  bottom: 0;
 }
 .top-pict {
   width: calc(13rem * 0.7);
-  /* 386px; */
   height: calc(5.6rem * 0.7);
-  /* 166px */
   text-align: center;
-  margin-bottom: 5rem;
-  margin-top: 2.36rem;
   align-self: center;
 }
 .top-pict > img {
@@ -236,26 +246,37 @@ main > .container {
 }
 .col-subtitle {
   color: var(--ye);
-  font-size: 2rem;
+  font-size: 1.93rem;
   font-weight: 600;
-  letter-spacing: -0.05rem;
-  margin-bottom: 0.6rem;
+  line-height: 120%;
+  letter-spacing: -0.02rem;
+  margin-bottom: 1.1rem;
+}
+.left-col .col-subtitle {
+  margin-left: -0.7rem;
 }
 .descr {
-  font-size: 1.4rem;
-  margin-bottom: 5.4rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 130%;
+  margin-bottom: 3.8rem;
 }
 .btn {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
   background-color: var(--ye);
   color: var(--bg-grey);
   height: var(--btn-height);
-  width: 75%;
+  width: 10.5rem;
+  padding: 0 0.5rem;
   border-radius: calc(var(--btn-height) / 2);
   text-align: center;
   line-height: var(--btn-height);
   display: inline-block;
   text-decoration: none;
+  border: none;
 }
 .btn a {
   display: block;
@@ -284,6 +305,16 @@ main > .container {
   top: 0;
   left: 0;
 }
+.right-col  {
+  padding-left: 5.2vw;
+  margin-left: 1vw;
+  padding-right: 1vw;
+}
+.right-col .top-pict {
+  margin-top: 3.25rem;
+  margin-left: 1.3vw;
+  margin-bottom: 64px;
+}
 .right-col > .col-subtitle,
 .right-col > .descr,
 .right-col > .btn {
@@ -292,18 +323,48 @@ main > .container {
 }
 .right-col > .btn {
   text-align: center;
+  margin-left: -0.85rem;
 }
 
+@media (max-width: 1255px) {
+  .ooo-pic {
+    width: 25%;
+    height: 1.5rem;
+    margin: 0 auto; 
+    margin-bottom: 1.6rem; 
+  }
+  .thick-header {
+    font-size: 3rem;
+  }
+}
 @media (max-width: 1000px) {
   body {
     margin-left: 1rem;
   }
+  .menu {
+    font-size: 1.2rem;
+  }
   .menu-item {
     margin-right: 1vw;
+  }
+  :root {
+    --min-height-main-col: 28rem;
+  }
+  .media-pic-container {
+    align-self: flex-end;
   }
   .left-col {
     padding: 1vw;
     flex: 0 0 33%;
+  }
+  main > .container div.top-pict {
+    margin-bottom: 2rem;
+  }
+  main .col-subtitle {
+    margin-bottom: 1rem;
+  }
+  main .descr {
+    margin-bottom: 1rem;
   }
   .btn {
     width: 100%;
@@ -313,7 +374,7 @@ main > .container {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;   
     flex: 0 0 67%;
   }
@@ -328,6 +389,11 @@ main > .container {
     flex: 0 0 100%;
     padding: 1rem 33%;
   }
+  .right-col > .top-pict,
+  .left-col > div.top-pict {
+    margin-bottom: 1rem ;
+    margin-top: 1rem;
+  }
   .right-col > .col-subtitle,
   .right-col > .descr,
   .right-col > .btn {
@@ -335,14 +401,21 @@ main > .container {
   }
 }
 
-@media (max-width: 733px) {
+@media (max-width: 753px) {
   body {
     margin-left: 0;
   }
- .left-col,
- .right-col {
+  .menu {
+    font-size: 1rem;
+  }
+  .left-col,
+  .right-col {
     flex: 0 0 100%;
     padding: 1rem 25%;
+    align-items: center;
+  }
+  .right-col > .btn { 
+    align-self: center;
   }
   .media-col {
     padding: 1rem 10%;
@@ -351,11 +424,14 @@ main > .container {
   .media-pic-container {
     width: 80%;
   }
-
   .left-col > .col-subtitle,
   .left-col > .descr,
   .left-col > .btn {
     text-align: center;
+  }
+  .btn {
+    width: 70%;
+    font-size: 1.4rem;
   }
 }
 
@@ -370,5 +446,8 @@ main > .container {
   .media-pic-container {
     width: 100%;
   }
-
+  .btn {
+    width: 100%;
+    font-size: 1rem;
+  }
 }
