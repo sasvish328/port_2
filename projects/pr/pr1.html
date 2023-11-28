@@ -9,25 +9,26 @@
 
 
 <body>
-  <p class="boring-text">Вот простой скучный текст.</p>
-  <p>Вот нормальный текст, который не является ни скучным, ни потрясающим.</p>
-  <p class="exciting-text">
-    Помогать MDN легко и весело. Просто нажмите кнопку редактирования, чтобы
-    добавить новые живые примеры, или улучшить существующие примеры.
-  </p>
 
 
-  <form>
-    <label for="choose">Would you prefer a banana or cherry?</label>
-    <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry" />&nbsp;<sup>*</sup>
-    <button>Submit</button>
+  <form class="my-form">
+    <label for="username" class="required">Логин:</label>
+    <input id="username" class="username" type="text" name="username" minlength="3" maxlength="20" required>
+    <br>
+    <label for="password" class="required">Пароль:</label>
+    <input id="password" class="password" type="password" name="password" minlength="3" maxlength="20" required>
+    <br>
+    <label for="email" class="required">Введите email:</label>
+    <input id="email" class="email" type="email" name="email" pattern=".+@.+\..+" required>
+    <br>
+    <label for="tel" class="required">Введите телефон:</label>
+    <input id="tel" class="tel" type="tel" name="tel" pattern="^\+{0,1}[0-9-()]{7,20}" required>
+    <br>
+    <button type="submit">Отправить</button>
   </form>
 
 
-
-
-  <script>
-  </script>
+  <script></script>
 
 </body>
 

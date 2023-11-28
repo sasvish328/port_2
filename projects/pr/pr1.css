@@ -35,22 +35,7 @@ sup {
   display: none;
 }
 
-/* input::after { */
-label::after {
-  color: green;
-  content: "<- теперь это *просто* потрясающе!";
+label.required::after {
+  content: ' *'; 
+  color: rgb(199, 103, 103);
 }
-
-    /* Используем свойство vertical-align со значением sub или super.
-    Немного уменьшаем размер шрифта с помощью font-size. */
-
-.exciting-text::after {
-  content: "<- теперь это *просто* потрясающе!";
-  color: green;
-}
-
-.boring-text::after {
-  content: "<- СКУЧНО!";
-  color: red;
-}
-

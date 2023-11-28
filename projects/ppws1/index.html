@@ -135,7 +135,11 @@
           <div class="text-info">
             <h3 class="project-name">Ahuse</h3>
             <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-              eros.</p>
+              eros.
+              kdjfksdj
+              dksjfksdjf
+              djfksdjktlhktlr999999999
+            </p>
             <button class="project-link-btn">
               <div class="label">View In Dribbble</div>
               <img src="./img/port_btn_arrow.svg" alt="">
@@ -242,9 +246,9 @@
       <form action="" class="form">
         <div class="begin-form-box">
           <div class="first-name">
-            <label class="suplabel" for="first-name">First name
+            <label class="suplabel required" for="first-name">First name
             </label><br>
-            <input type="text" id="first-name" class="subinput">
+            <input type="text" id="first-name" class="subinput" required>
           </div>
           <div class="last-name">
             <label class="suplabel" for="last-name">Last name
@@ -252,32 +256,32 @@
             <input type="text" id="last-name" class="subinput">
           </div>
           <div class="email">
-            <label for="email" class="suplabel">Email
+            <label for="email" class="suplabel required">Email
             </label><br>
-            <input type="email" id="email" class="subinput">
+            <input type="email" id="email" class="subinput" pattern=".+@.+\..+" required>
           </div>
           <div class="phone-number">
             <label class="suplabel" for="phone-number">Phone number
             </label><br>
-            <input type="tel" id="phone-number" class="subinput">
+            <input type="tel" id="phone-number" class="subinput" pattern="^\+{0,1}[0-9-()]{7,20}">
           </div>
           <div class="choose-topic">
-            <label for="choose-topic">Choose a topic</label>
+            <label for="choose-topic" class="required">Choose a topic</label>
             <br>
             <div class="choose-topic-wrapper">
-              <select name="choose-topic" id="choose-topic" class="choose-topic-select">
+              <select name="choose-topic" id="choose-topic" class="choose-topic-select" required>
                 <option value="1">Select one...</option>
                 <option value="2">Select two...</option>
               </select>
             </div>
           </div>
           <div class="message">
-            <label for="message">Message</label><br>
-            <textarea id="message" name="message" rows="7" placeholder="Type your message..."></textarea>
+            <label for="message" class="required">Message</label><br>
+            <textarea id="message" name="message" rows="7" placeholder="Type your message..." required></textarea>
           </div>
           <div class="acception">
-            <input type="checkbox" id="acception">
-            <label for="acception">I accept the terms</label>
+            <input type="checkbox" id="acception" required>
+            <label for="acception" class="required">I accept the terms</label>
           </div>
         </div>
         <button class="submit-btn">Submit</button>
@@ -316,11 +320,11 @@
     </div>
     <hr>
     <div class="bottom">
-      <div class="made">Made with&nbsp;<span class="heart">💖</span>&nbsp;by Airdokan</div>
+      <div class="made"><a>Made with&nbsp;<span class="heart">💖</span>&nbsp;by Airdokan</a></div>
       <div class="fic3"></div>
-      <div class="privacy">Privacy Policy</div>
-      <div class="terms">Terms of Service</div>
-      <div class="cookies">Cookies Settings</div>
+      <div class="privacy"><a>Privacy Policy</a></div>
+      <div class="terms"><a>Terms of Service</a></div>
+      <div class="cookies"><a>Cookies Settings</a></div>
     </div>
   </footer>
   <script src="./js/main.js"></script>

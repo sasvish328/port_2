@@ -1,15 +1,9 @@
 :root {
   --primary: #5e3bee;
   --dribble: #e62872;
-  /* --bg-shade: #f5fcff;
+  --bg-shade: #f5fcff;
   --heading-color: #282938;
-  --body: #1c1e53; */
-  
-  /* временные цвета */
-  --bg-shade: #000;
-  --heading-color: #282938;
-  --body: #fff;
-  /* временные цвета */
+  --body: #1c1e53;
 
   /* моё */
   font-size: 0.3333333333px;
@@ -103,7 +97,7 @@ ul {
 header {
   margin: 94rem 0 474rem;
   background-color: var(--dark1);
-  color: var(--prim-color);
+  color: var(--body);
   max-width: var(--real-width);
   height: 208rem;
   display: grid;
@@ -360,6 +354,11 @@ main > section.myskills > .h2 {
 .portfolio .project-desc {
   margin: 0 auto 104rem;
   line-height: 150%;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
 }
 .portfolio .project-link-btn {
   width: 34%;
@@ -374,6 +373,9 @@ main > section.myskills > .h2 {
 }
 .portfolio .project-link-btn > img {
   margin-top: 8rem;
+}
+.project-link-btn > .label:hover {
+  color: var(--primary);
 }
 
 .testimonials {
@@ -564,6 +566,10 @@ form .begin-form-box .acception label {
   margin-left: -3rem;
   margin-top: 6rem;
 }
+label.required::after {
+  content: ' *'; 
+  color: rgb(199, 103, 103);
+}
 .submit-btn {
   padding: 66rem 156rem;
   background-color: var(--primary);
@@ -599,6 +605,13 @@ footer > .nav-wrapper > .menu > li {
 .socials > a {
   display: inline-block;
   align-items: flex-start;
+}
+.socials-item {
+  border: 4rem solid rgba(0, 0, 0, 0);
+  border-radius: 18rem;
+}
+.socials-item:hover {
+  border-color: var(--primary) ;
 }
 footer > .bottom {
   display: grid;
