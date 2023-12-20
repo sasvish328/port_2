@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>pr2</title>
+  <style>
+    input {
+      width: 150px;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    #emailErrors {
+      padding: 5px;
+      background-color: #ffcccc;
+      color: #b33939;
+      display: none;
+    }
+
+    #usernameErrors {
+      padding: 5px;
+      background-color: #ffcccc;
+      color: #b33939;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="registerForm" name="registerForm" method="post" action="">
+
+    <p>
+      <label for="username">Username:</label><br>
+      <input id="username" name="username" maxlength="20" minlength="3" required>
+    <div id="usernameErrors"></div>
+    </p>
+
+    <button type="submit" id="submit" name="submit">Register</button>
+  </form>
+
+
+  
+  <script>
+
+    const usernameErrors = document.getElementById("usernameErrors")
+    const usernameField = document.registerForm.username
+    const submit = registerForm.submit
+    submit.addEventListener("click", validate)
+
+    function validate(e) {
+      e.preventDefault()
+
+      if (registerForm.username.validity.valueMissing) {
+        registerForm.username.setCustomValidity("Необходимо ввести имя пользователя")
+      }
+      if (registerForm.username.validity.tooLong) {
+        registerForm.username.setCustomValidity("Имя пользователя не должно превышать 20 символов")
+      }
+      if (registerForm.username.validity.tooShort) {
+        registerForm.username.setCustomValidity("Имя пользователя не должно быть меньше 3 символов")
+      }
+
+      if (usernameField.value === "admin") {
+        usernameField.setCustomValidity("Недопустимое имя пользователя")
+      }
+      // проверяем на валидацию
+      if (!usernameField.validity.valid) {
+        usernameErrors.textContent = usernameField.validationMessage
+        usernameErrors.style.display = "block"
+      } else {
+        usernameErrors.textContent = ""
+        usernameErrors.style.display = "none"
+        e.preventDefault() // предупреждаем отправку форму и перезагрузку страницы
+      }
+    }
+
+
+    // старое ---------------------
+
+    // submit.addEventListener("click", validate)
+
+    // function validate() {
+    //   if (!registerForm.username.checkValidity()) {
+    //     console.log("Username is not valid")
+    //   }
+    //   if (!registerForm.age.checkValidity()) {
+    //     console.log("Age is not valid")
+    //   }
+    //   if (!registerForm.checkValidity()) {
+    //     console.log("Form data is not valid")
+    //   }
+    // }
+
+
+
+    // const emailField = document.getElementById("email")
+    // const emailErrors = document.getElementById("emailErrors")
+    // emailField.addEventListener("change", validateEmail)
+
+    // registerForm.setAttribute("novalidate", "")
+
+    // function validateEmail() {
+    //   if (!emailField.validity.valid) {
+    //     // emailErrors.textContent = emailField.validationMessage;
+    //     emailErrors.textContent = "Не email. Может быть нет @"
+
+    //     emailErrors.style.display = "block"
+    //   }
+    //   else {
+    //     emailErrors.textContent = ""
+    //     emailErrors.style.display = "none"
+    //   }
+    // }
+
+
+  </script>
+</body>
+
+</html>
+</body>
+
+</html>

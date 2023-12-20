@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>pr3</title>
+
+  <style>
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <script>
+    // постановка задачи
+    // Древние египтяне тянут строительный блок на высоту 'N' метров, за один день они поднимаю блок на высоту 'x' метров, однако за ночь блок опускается под собственным весом на 1 метр. Рассчитайте количество дней, необходимое чтобы поднять блок на 'N' метров.
+    // --------------
+
+    const upStepInDay = 7 // затащим за день
+    const height = 3 // длина пандуса
+    const downStepInDay = 1 // сползёт за ночь
+    const currPos = 0
+    const day = 1
+
+
+    function complexWay(upStepInDay, height, downStepInDay, currPos, day) {
+      // сложный алгоритм позволяет сократить кол-во циклов, по 
+      // сравнению с прямолинейным, который в лоб прибавляет
+
+      // вычисляем предпоследний или предпредпосл-й день
+      const delta = upStepInDay - downStepInDay
+      let subHeight = height - upStepInDay
+
+      let subSumDays = Math.floor(subHeight / delta)
+
+      currPos += subSumDays * delta
+      day = subSumDays
+
+      while (currPos < height) {
+        day += 1
+        currPos = currPos + upStepInDay
+        if (currPos >= height) {
+          break
+        } else {
+          currPos = currPos - downStepInDay
+        }
+      }
+      return day
+    }
+
+
+    function straightLine(upStepInDay, height, downStepInDay, currPos, day) {
+
+      currPos += upStepInDay
+      while (currPos < height) {
+        day += 1
+        currPos = currPos - downStepInDay + upStepInDay
+      }
+      return day
+    }
+
+
+
+    console.log("простое выч = ", straightLine(upStepInDay, height, downStepInDay, currPos, day))
+    console.log("слож = ", complexWay(upStepInDay, height, downStepInDay, currPos, day));
+  </script>
+
+</body>
+
+</html>

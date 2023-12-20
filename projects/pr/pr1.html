@@ -3,32 +3,68 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
   <title>pr1</title>
-  <link rel="stylesheet" href="./pr1.css">
+
+  <style>
+  </style>
+
 </head>
 
 
 <body>
 
-
-  <form class="my-form">
-    <label for="username" class="required">Логин:</label>
-    <input id="username" class="username" type="text" name="username" minlength="3" maxlength="20" required>
-    <br>
-    <label for="password" class="required">Пароль:</label>
-    <input id="password" class="password" type="password" name="password" minlength="3" maxlength="20" required>
-    <br>
-    <label for="email" class="required">Введите email:</label>
-    <input id="email" class="email" type="email" name="email" pattern=".+@.+\..+" required>
-    <br>
-    <label for="tel" class="required">Введите телефон:</label>
-    <input id="tel" class="tel" type="tel" name="tel" pattern="^\+{0,1}[0-9-()]{7,20}" required>
-    <br>
-    <button type="submit">Отправить</button>
+  <form action="" class="form" id="form">
+    <div class="first-name">
+      <label class="suplabel required" for="first-name">First name
+      </label><br>
+      <input type="text" id="first-name" class="subinput" required>
+    </div>
+    <div class="last-name">
+      <label class="suplabel" for="last-name">Last name
+      </label><br>
+      <input type="text" id="last-name" class="subinput">
+      <div class="error-label"></div>
+    </div>
+    <button class="submit-btn">Submit</button>
   </form>
+  <a href="#">1 link</a>
+  <a href="#">2 link</a>
+  <button>3. Buttun</button>
 
 
-  <script></script>
+  <script>
+    const form1 = document.querySelector("form")
+    // form1.setAttribute("novalidate", "")
+    // Функция для проверки валидности элемента
+    function validate(element) {
+      // Проверяем значение элемента
+      const value = element.value
+
+      // Если значение невалидное, показываем сообщение об ошибке
+      if (!value.match(/^[a-z0-9]+$/)) {
+        element.classList.add("invalid")
+      } else {
+        element.classList.remove("invalid")
+      }
+    }
+
+    // Добавляем слушатель события blur на форму
+    form1.addEventListener("submit", (event) => {
+      // form1.addEventListener("blur", (event) => {
+      // Получаем элемент, на котором произошло событие
+      const element = event.target
+      console.log("будем проверять:", element.id)
+      // Если элемент является инпутом, вызываем функцию validate
+      if (element instanceof HTMLInputElement) {
+        validate(element)
+      }
+    })
+
+    console.log("form1 =", form1)
+  </script>
 
 </body>
 

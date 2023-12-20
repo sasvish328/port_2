@@ -12,6 +12,8 @@
 # Игнорировать все файлы в каталоге build/
 build/
 templates/
+./**/node_modules/
+node_modules/
 
 # Игнорировать файл doc/notes.txt, но не файл doc/server/arch.txt
 doc/*.txt

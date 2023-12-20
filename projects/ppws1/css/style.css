@@ -1,9 +1,13 @@
 :root {
   --primary: #5e3bee;
   --dribble: #e62872;
-  --bg-shade: #f5fcff;
   --heading-color: #282938;
+
+  --bg-shade: black;
+  --body: white;
+/*   
   --body: #1c1e53;
+  --bg-shade: #f5fcff; */
 
   /* моё */
   font-size: 0.3333333333px;
@@ -11,23 +15,53 @@
   --visited-link: var(--body);
   --hover-link: var(--primary);
   --ghost: #505050;
-  --nav-gap: 64rem;
-  --body1-fs: 64rem;
-  --fic-width: 1106rem;
-  --icon-size: 240rem;
+
+    /* 1749,333333px margin не учитывается, с ним будет 1920px */
+  --body-width: 5760rem;
+  --real-width: calc(var(--body-width) - 2 * var(body-padding-width));
+  
+  --skill-icon-size: 240rem;
   --dribble-icon-size: 96rem;
-  --pf-content-gap: 128rem;
-  --real-width: 5248rem;
+  --about-photo-width: 2440rem;
+  --about-photo-height: 2988rem;
+  --about-right-width: 2464rem;
+  
+  --body-margin-width: 256rem;
+  --nav-gap: 64rem;
+  --content-gap: 128rem;
+  --about-media-margin: 296rem;
+  --avatar-size: 224rem;
   --hover-border-bottom: 12rem solid var(--primary);
+
+  --body1-fs: 64rem;
+  
+  --project-desc-max-q-string: 2;
+  --skills-max-q-string: 4;
+  --main-header-suptitle-max-q-string: 3;
+  --about-subtitle-max-q-string: 16; 
+
   --unused-page-color: #1a1a1a;
   --star-color: #006b6a;
-  --avatar-size: 224rem;
   accent-color: var(--primary);
 }
 
 html {
   box-sizing: border-box;
 }
+.error-label {
+  background-color: #ffcccc;
+  color: #b33939;
+  padding: 3px;
+  display: none;
+}
+.active-error-label {
+  display: block;
+}
+form .error-item > input,
+form .error-item > textarea {
+  border-color: red;
+}
+
 
 *,
 *::after,
@@ -45,15 +79,15 @@ a:hover {
   color: var(--hover-link);
 }
 body {
-  padding: 0 256rem;
-  margin: 0;
-  margin-top: -80rem;
-  /* вынужденная мера. что-то сбивается в firefox */
+  width: var(--body-width);
+  /* padding: 0 var(--body-margin-width); */
+  margin: 0 var(--body-margin-width);
+  /* margin: 0; */
+  padding: 0;
   background-color: var(--bg-shade);
   color: var(--body);
   font-family: Roboto, sans-serif;
   font-size: var(--body1-fs);
-  width: 5760rem;
 }
 main,
 html {
@@ -95,11 +129,11 @@ ul {
 }
 
 header {
-  margin: 94rem 0 474rem;
   background-color: var(--dark1);
   color: var(--body);
   max-width: var(--real-width);
   height: 208rem;
+  margin: 14rem 0 474rem;
   display: grid;
   grid-template-columns: 560rem 920rem auto 260rem 512rem;
   /*                     logo   fic1    menu fic2  c-btn  */
@@ -116,7 +150,9 @@ footer > .nav-wrapper > .menu {
   display: flex;
   margin: 0;
   text-align: center;
+  justify-content: space-between;
   gap: 128rem;
+  padding: 0;
 }
 .contact-btn {
   border: 4rem solid var(--primary);
@@ -141,18 +177,10 @@ main > .header {
 }
 main > .header > .left-col {
   display: grid;
-  grid-template-rows: 305rem 96rem 64rem 516rem 64rem 220rem 160rem 208rem;
+  grid-template-rows: 305rem 96rem 69rem 516rem 64rem 220rem 160rem 208rem;
   /*                   fic0   sup  fic1     h1  fic2   sub
     fic3   button */
-  /* align-items: flex-start; */
   margin: 0;
-  /* margin: 305rem 0; */
-}
-main > .header > .left-col > .suptitle {
-  height: 96rem;
-}
-main > header > .left-col > .fic1 {
-  height: 64rem;
 }
 main > .header > .left-col > .h1 {
   margin: 0;
@@ -162,11 +190,17 @@ main > .header > .left-col > .h1 {
 }
 main > .header > .left-col > .subtitle {
   margin: 0;
-  display: block;
   width: 1864rem;
-}
-main header > .left-col > .fic3 {
-  height: 160rem;
+
+  display: flex;
+  align-items: flex-start;
+}  
+main > .header > .left-col > .subtitle > p {
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--main-header-suptitle-max-q-string);
 }
 .get-btn {
   padding: 56 auto;
@@ -183,14 +217,10 @@ main header > .left-col > .fic3 {
 .img-container {
   overflow: hidden;
   display: flex;
-  text-align: center;
 }
-.contain-img {
-  height: 100%;
+.inner-img {
   width: 100%;
   object-fit: contain;
-  vertical-align: middle;
-  /* object-position: center top; */
 }
 
 .myskills {
@@ -213,28 +243,31 @@ main > section.myskills > .h2 {
 .skill-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 177rem;
-  /* gap: 128rem; вычислено правильно, но не работает, РР не совпадает почему-то */
+  gap: 128rem;
   padding: 0;
   margin: 0;
 }
-.skill-container > .skill-item {
+.skill-item {
   width: 100%;
   padding: 96rem;
+  padding-bottom: 24rem;
   border-radius: 32rem;
-  /* vertical-align: center; */
-  display: grid;
-  grid-template-rows: var(--icon-size) 96rem 135rem 64rem 384rem;
-  /*                  icon             fic4   h2    fic5  desc */
   margin: 0;
   border-bottom: 12rem solid rgba(100, 100, 110, 0);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 .skill-item:hover {
   border-bottom: 12rem solid var(--primary);
 }
 .skill-item > .icon {
-  width: var(--icon-size);
-  height: var(--icon-size);
+  width: var(--skill-icon-size);
+  height: var(--skill-icon-size);
+  border: 4rem solid rgb(124, 169, 159);
+  border-radius: 30rem;
 }
 .skill-item > .icon > img {
   padding: 40rem;
@@ -244,9 +277,15 @@ main > section.myskills > .h2 {
   font-size: 96rem;
   line-height: 140%;
   white-space: nowrap;
+  margin-bottom: 64rem;
 }
 .skill-desc {
   line-height: 150%;
+  margin-top: 0rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--skills-max-q-string);
 }
 
 .about {
@@ -255,27 +294,34 @@ main > section.myskills > .h2 {
   justify-content: start;
 }
 .about > .left-col {
-  width: 2440rem;
-  height: 2988rem;
+  width: var(--about-photo-width);
+  height: var(--about-photo-height);
 }
 .about > .right-col {
+  display: flex;
   align-items: flex-start;
   justify-content: start;
   padding-left: 48rem;
-  width: 2464rem;
-  display: flex;
+  width: var(--about-right-width);
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-left: 296rem;
+  margin-left: var(--about-media-margin);
 }
 .about > .right-col > .suptitle {
-  display: block;
-  width: 100%;
   margin-top: 889rem;
 }
 .about > .right-col > .h2 {
   margin-top: 32rem;
   margin-bottom: 96rem;
   text-align: left;
+}
+.about > .right-col > .subtitle {
+  width: 100%;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  -webkit-line-clamp: var(--about-subtitle-max-q-string);
 }
 .about > .right-col p {
   margin: 0;
@@ -290,14 +336,14 @@ main > section.myskills > .h2 {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 320rem;
-}
+} 
 .portfolio > .header > .left-col {
   display: inline-block;
   width: 3072rem;
 }
 .portfolio > .header > .right-col {
   display: inline-block;
-  justify-content: right;
+  /* justify-content: right; */
   margin-right: 0rem;
 }
 .portfolio > .header > .left-col > .h2 {
@@ -307,12 +353,12 @@ main > section.myskills > .h2 {
   width: 755rem;
   height: 224rem;
   border-radius: 32rem;
+  gap: 48rem;
   background-color: var(--dribble);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 48rem;
 }
 .dribble > img,
 .dribble > p {
@@ -326,18 +372,22 @@ main > section.myskills > .h2 {
 }
 .portfolio > .content {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: start;
-  gap: var(--pf-content-gap);
+  justify-content: flex-start;
+  gap: var(--content-gap);
 }
 .portfolio > .content > .item {
   display: flex;
   flex-wrap: wrap;
-  width: calc(((var(--real-width) - 2 * var(--pf-content-gap)) / 3));
+  width: calc(((100% - 2 * var(--content-gap)) / 3));
+  min-width: 500px;
+  max-width: 640px;
   box-shadow: 0 0 96rem 0 rgba(0, 0, 0, 0.15);
 }
 .portfolio > .content > .item > img {
   height: 1200rem;
+  width: auto;
 }
 .portfolio .text-info {
   padding: 96rem;
@@ -357,8 +407,7 @@ main > section.myskills > .h2 {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-
+  -webkit-line-clamp: var(--project-desc-max-q-string);
 }
 .portfolio .project-link-btn {
   width: 34%;
@@ -391,19 +440,19 @@ main > section.myskills > .h2 {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--pf-content-gap);
+  gap: var(--content-gap);
 }
 .testimonials > .content > .card {
   display: flex;
   flex-wrap: wrap;
-  width: calc(((var(--real-width) - 2 * var(--pf-content-gap)-8rem) / 3));
+  width: calc(((var(--real-width) - 2 * var(--content-gap)-8rem) / 3));
   border: 5rem solid var(--star-color);
-  padding: var(--pf-content-gap);
-  padding-bottom: calc(var(--pf-content-gap) - 3rem);
+  padding: var(--content-gap);
+  padding-bottom: calc(var(--content-gap) - 3rem);
   border-radius: 24rem;
 }
 .testimonials > .content > .card > .text {
-  padding-top: calc(var(--pf-content-gap) - 20rem);
+  padding-top: calc(var(--content-gap) - 20rem);
   line-height: 150%;
   margin-top: 0;
   margin-bottom: 128rem;
@@ -628,4 +677,317 @@ footer > .bottom {
 footer > .bottom div {
   display: inline-block;
   white-space: nowrap;
+}
+
+.test-box {
+  border: 2px solid red;
+  width: 90vw;
+  height: 100px;
+  
+  display: none;
+  position: fixed;
+  left: 0%;
+  top: 10%;
+}
+ 
+/* 1-й медиазапрос */
+@media (max-width: 1800px) {
+  :root {
+    /* незначимые, можно vw не менять */
+    --body-margin-width: 1vw;
+    /* --body-width: 1800px; */
+    /* --body-width: 100%; */
+    width: 100vw;
+    --body-width: 97vw;
+    --skill-icon-size: 7vh;
+
+    --about-photo-width:  45vw;
+    --about-photo-height:  55vw;
+    --about-right-width:  57vw;
+     
+    /* малозначимые, можно vw не менять долго */
+    --content-gap: 2vw;
+    --nav-gap: 2vw;
+    --about-media-margin:  7vw;
+  }
+  .h2, .h1 {
+    padding: 2vh auto 3vh;
+  }
+  header {
+    margin: 1vh 0 2vh;
+    grid-template-columns: 12vw 0vw auto 1vw 10vw;
+    /*                   logo  fic1 menu fic2  c-btn  */
+    gap: var(--content-gap);
+  }
+  header.nav-wrapper > .menu,
+  footer > .nav-wrapper > .menu {
+    gap: 2vw;
+  }
+  main > .header {
+    width: 100%;
+    grid-template-columns: 0.9fr 1.1fr ;
+    margin-bottom: 3vw;
+  }
+  main > section.myskills > .h2 {
+    margin-bottom: 4vh;
+  }
+  main > section.myskills > .suptitle {
+    margin-bottom: 1vh;
+  }
+  .skill-container {
+    gap: 0;
+  }
+  .skill-item {
+    padding: 1vw;
+    padding-bottom: 1vh;
+  }
+  .portfolio { 
+    margin-bottom: 7vh;
+  }
+  .portfolio > .content { 
+    justify-content: center;
+  }
+  .portfolio > .header {
+    width: 97%;
+  }
+  .portfolio > .header > .left-col {
+    width: 40%;
+  }
+  .portfolio > .header > .right-col {
+    margin-left: auto;
+  }
+  .testimonials {
+    padding: 0; 
+  }
+  .testimonials > .suptitle {
+    margin-bottom: 1vh;
+  }
+  .testimonials > .h2 {
+    margin-bottom: 3vh;
+  }
+}
+
+@media (max-width: 1600px) {
+  :root {
+    --content-gap: 1vw;
+  }
+  .h2 {
+    padding: 1vh auto 1vh;
+    font-size: 160rem;
+  }
+  main .header > .left-col {
+    display: flex;
+    flex-direction: column;
+  }
+  main .header > .left-col > .subtitle {
+    margin: 2vh 0;
+  }
+  .myskills {
+    margin-bottom: 7vh;
+  }
+  .portfolio {
+    margin: 5vh 0;
+  }
+  .portfolio > .header {
+    margin-bottom: 3vh;
+  }
+  .portfolio > .content > .item {
+    width: calc((100% - var(--content-gap) ) / 2 );
+  }
+}
+
+@media (max-width: 1500px) {
+  :root {
+    --nav-gap: 1vw;
+    --content-gap: 1vw;
+  }
+  header {
+    margin: 1vh 0 2vh;
+    grid-template-columns: 12vw 0vw auto 0vw 12vw;
+  }
+  header.nav-wrapper > .menu,
+  footer > .nav-wrapper > .menu {
+    gap: 1vw;
+  }
+  .about > .right-col > .suptitle {
+    margin-top: 1vh;
+  }
+  main > .contact {
+    margin-top: 7vh;
+    padding: 2vh 25vh;
+  }
+  main > .contact > .suptitle {
+    margin-bottom: 2vh;
+  }
+  main > .contact > .h2 {
+    margin-bottom: 3vh;
+  }
+  main > .contact > .subtitle {
+    margin-bottom: 5vh;
+  }
+  footer {
+    margin: 4vh 0;
+    width: 97vw;
+  }
+  footer > .nav-wrapper {
+    width: 90vw;
+    margin: 4vh 0;
+    grid-template-columns: 12vw 1vw auto 1vw 10vw;
+    /*                    logo fic1 menu fic2 soc  */
+  }
+  footer > .nav-wrapper > .menu {
+    justify-content: center;
+    gap: 1vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  header {
+    grid-template-columns: 15vw 0vw auto 0vw 15vw;
+  }
+  main .skill-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .skill-item {
+    max-width: 44vw;
+  }
+  main > .contact {
+    margin-top: 4vh;
+    padding: 1vh 10vh;
+  }
+  footer > .nav-wrapper {
+    width: 80vw;
+    grid-template-columns: 12vw 1vw auto 1vw 10vw;
+    /*                    logo fic1 menu fic2 soc  */
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --about-right-width: 96vw;
+    --about-media-margin: 1vw;
+    --about-photo-width: 80vw;
+    --about-photo-height: 90vw;
+  }
+  header > .logo, header > .contact-btn
+  {
+    margin: 1vh auto;
+  }
+
+
+  main > .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonials > .content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .testimonials > .content > .card {
+    min-width: 227px;
+    max-width: 350px;
+    width: calc(((var(--real-width) - var(--content-gap)-8rem) / 2));
+  }
+  main > .contact {
+    padding: 1vh 1vh;
+  }
+  header, 
+  .about,
+  .portfolio > .content,
+  footer > .nav-wrapper, 
+  footer > .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    height: auto;
+  }
+  header > .fic1,
+  header > .fic2, .bottom > .fic3 {
+    display: none;
+  }
+  header > .menu,
+  .about > div,
+  .portfolio > .header > .left-col,
+  footer > .nav-wrapper,
+  footer > .nav-wrapper > * {
+    width: 100%;
+  }
+  .header > .left-col, .header > .left-col p.subtitle{
+    width: 95vw ;
+  }
+  .header > .get-btn {
+    width: 20vw !important;
+  }
+  .myskills > .skill-container,
+  .text-info {
+    flex-direction: column;
+  }
+  .myskills > .skill-container > .skill-item,
+  .portfolio > .content > .item p.project-desc {
+    margin: 2vh auto;
+    width: 94vw;
+  }
+  section.about > * {
+    margin: 1vh auto;
+  }
+  section.about > .left-col {
+    order: 2;
+  }
+  .portfolio > .header {
+    flex-wrap: wrap;
+  }
+  .portfolio > .header > .right-col {
+    margin: 1vw auto;
+  }
+  .portfolio > .header > .left-col > *,
+  .myskills > h4,
+  .myskills > .h2,
+  .testimonials > h3,
+  .testimonials > h2
+  {
+    text-align: center;
+  }
+  .portfolio .item .text-info
+  {
+    padding: 2vw;
+  }
+  .begin-form-box {
+    grid-template:
+    "first-name"
+    "last-name"
+    "email"
+    "phone-number"
+    "topic"
+    "message"
+    "acception"
+    /1fr;
+  }
+  .portfolio > .content > .item > img {
+    width: 94vw;
+    height: auto;
+    margin-left: 2vw;
+  }
+  footer > .nav-wrapper > .socials {
+    justify-content: center;
+  }
+  .bottom {
+    margin-left: 7vw;
+  }
+}
+
+@media (max-width: 500px) {
+  header.nav-wrapper > .menu,
+  footer > .nav-wrapper,
+  footer > .nav-wrapper > .menu {
+    flex-direction: column; 
+  }
+  header.nav-wrapper > .logo,
+  footer > .nav-wrapper > .logo {
+    width: 100%;
+  }
+  header.nav-wrapper > .contact-btn {
+    margin: 1vh auto;
+  }
+
 }
