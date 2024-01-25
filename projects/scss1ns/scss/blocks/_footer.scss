@@ -1,0 +1,46 @@
+.footer {
+	padding-top: 4.5rem;
+	padding-bottom: 3.19rem;
+	background-color: $footer-bg;
+	font-size: 0.875rem;
+	letter-spacing: 0.04375rem;
+
+	@include mediaTablet {
+		padding-top: 3rem;
+		padding-bottom: 2rem;
+	}
+
+  & .logo {
+    margin-top: -12px;
+  }
+
+  & .socials {
+    display: flex;
+    align-items: center;
+    column-gap: 1.38rem;
+  }
+
+}
+
+.footer__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
+  text-align: left;
+
+	@include mediaTablet {
+		grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 5rem 2rem;
+	}
+}
+
+
+.footer__nav-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.ye {
+  color: $accent;
+  font-weight: 700;
+}

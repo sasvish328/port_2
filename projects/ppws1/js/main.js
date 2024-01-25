@@ -133,6 +133,10 @@ form.addEventListener('submit', (e) => {
   e.preventDefault()
   if (isFormValid(e.target) == true) {
     console.log("форма прошла валидацию успешно");
+
+    // как стандартный вариант - form.submit(), но тут, ниже, я делаю
+    // подробную отправку на сервер
+
     // отправляем запрос на сервер
 
     // Создаем объект XMLHttpRequest

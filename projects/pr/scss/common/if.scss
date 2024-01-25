@@ -1,0 +1,19 @@
+.if-v1 {
+  .btn {
+    &-primary {
+      @include btn-type('primary');
+    }
+
+    &-success {
+      @include btn-type('success');
+    }
+
+    &-danger {
+      @include btn-type('danger');
+    }
+
+    &-default {
+      @include btn-type();
+    }
+  }
+}

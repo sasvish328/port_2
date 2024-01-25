@@ -1,0 +1,57 @@
+body {
+  font-family: Curier, serif;
+  font-size: 16px;
+}
+
+.container {
+  min-width: 400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.if-v1 .btn-primary {
+  background: blueviolet;
+  color: white;
+}
+.if-v1 .btn-success {
+  background: palegreen;
+  color: black;
+}
+.if-v1 .btn-danger {
+  background: indianred;
+  color: white;
+}
+.if-v1 .btn-default {
+  background-color: white;
+  color: black;
+}
+
+header menu {
+  display: flex;
+  list-style: none;
+}
+
+:root {
+  --main-green: green;
+}
+
+.banner__text, .banner__form-wrapper {
+  width: 30%;
+}
+.banner__label {
+  display: block;
+}
+.banner__label input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.banner__text {
+  background-color: var(--main-green);
+}
+
+/*# sourceMappingURL=index.css.map */

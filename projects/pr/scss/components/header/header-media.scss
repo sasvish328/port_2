@@ -1,0 +1,23 @@
+// @media (max-width: $breakpoint_xxl) {
+//   header {
+//     // ...  
+//   }
+
+//   footer {
+//     // ...  
+//   }
+// }
+
+// @media (max-width: $breakpoint_xl) {
+//   header {
+//     // ...  
+//   }
+// }
+
+// @media (max-width: $breakpoint_md) {
+//   header {
+//     // ...  
+//   }
+// }
+
+@include desktop();

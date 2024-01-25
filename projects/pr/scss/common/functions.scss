@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/*
+sass —watch scss/functions.scss:css/functions.css
+Функции -это куски кода которые можно переиспользовать изменяя их поведение через аргументы которые они принимают, а также функции могут возвращать значения.
+Создаются с помощью директивы @function
+*/
+// Напишем функцию которая возводит число в степень
+@function pow($base, $exponent) {
+  $result: 1;
+
+  // Цикл @for тут подойдет как нельзя лучше
+  // он перебирает числа от from до through постепенно увеличивает значение $i
+  @for $i from 1 through $exponent {
+    $result: $result * $base;
+  }
+
+  // Возвращаем результат из функции
+  @return $result;
+}
+
+.example {
+  font-size: pow(2, 8) * 1px;
+}
+
+// Функция с опциональными аргументами
+@funcfion invert ($color, $amount: 100%) {
+  $inverse: change-color($color, $hue: hue($color) + 180);
+  @return mix($inverse, $color, $amount);
+}
+
+$primary-color: #036;
+
+.header {
+  background-color: invert($primary-color, 80%);
+}
+
+// Функция с неограниченным количеством аргументов
+@function sum($numbers...) {
+  $sum: 0;
+  @each $number in $numbers {
+    $sum: $sum + $number;
+  }
+
+  @return $sum;
+}
+
+.micro {
+  width: sum(50px, 30px, 100px);
+}

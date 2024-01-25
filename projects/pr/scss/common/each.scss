@@ -1,0 +1,42 @@
+// Создадим list
+$font-weights: bolder,
+bold,
+normal,
+lighter;
+// Переберем этот list и сгенерируем нужные нам классы
+
+@each $value in $font-weights {
+  .font-#{$value} {
+    font-weight: $value;
+  }
+}
+
+/* Опишем более сложную логику, создадим тар и сгенерируем классы для кнопок которые будем использовать на странице
+*/
+$btn-map: (primary blueviolet white,
+  success palegreen black,
+  danger indianred white,
+  default white black);
+
+@each $name,
+$bg-color,
+$font-color in $btn-map {
+  .btn.btn-#{$name} {
+    background-color: $bg-color;
+    color: $font-color;
+  }
+}
+
+// Усложним наш пример, добавим кнопкам возможность изменять размер
+$btn-sizes: (
+  xs 5рх, 
+  sm 10рх, 
+  md 20рх, 
+  lg 30рх,
+);
+
+@each $name, $size in $btn-sizes {
+  .btn.btn-#{$name} {
+    padding: $size;
+  }
+}

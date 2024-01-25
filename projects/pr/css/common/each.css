@@ -1,0 +1,56 @@
+@charset "UTF-8";
+.font-bolder {
+  font-weight: bolder;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-normal {
+  font-weight: normal;
+}
+
+.font-lighter {
+  font-weight: lighter;
+}
+
+/* Опишем более сложную логику, создадим тар и сгенерируем классы для кнопок которые будем использовать на странице
+*/
+.btn.btn-primary {
+  background-color: blueviolet;
+  color: white;
+}
+
+.btn.btn-success {
+  background-color: palegreen;
+  color: black;
+}
+
+.btn.btn-danger {
+  background-color: indianred;
+  color: white;
+}
+
+.btn.btn-default {
+  background-color: white;
+  color: black;
+}
+
+.btn.btn-xs {
+  padding: 5рх;
+}
+
+.btn.btn-sm {
+  padding: 10рх;
+}
+
+.btn.btn-md {
+  padding: 20рх;
+}
+
+.btn.btn-lg {
+  padding: 30рх;
+}
+
+/*# sourceMappingURL=each.css.map */

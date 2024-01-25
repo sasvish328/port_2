@@ -1,0 +1,24 @@
+:root {
+  --main-green: #{$green-color};
+}
+
+.banner {
+
+  &__text,
+  &__form-wrapper {
+    width: 30%;
+  }
+
+  &__label {
+    display: block;
+
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    background-color: var(--main-green);
+  }
+}

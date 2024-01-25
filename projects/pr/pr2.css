@@ -15,6 +15,7 @@ body {
   width: var(--cur-body-width);
   background-color: var(--bg-grey);
   color: var(--text-white);
+  
 }
 
 input:invalid {

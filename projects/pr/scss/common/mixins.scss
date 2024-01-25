@@ -1,0 +1,20 @@
+@mixin my-mixin33($color22, $width33) {
+  border: 1px solid $color22;
+  width: $width33;
+}
+
+@mixin btn-type($type: false) {
+  @if($type=='primary') {
+    background: blueviolet;
+    color: white;
+  } @elseif($type=='success') {
+    background: palegreen;
+    color: black;
+  } @elseif($type=='danger') {
+    background: indianred;
+    color: white;
+  } @else {
+    background-color: white;
+    color: black;
+  }
+}

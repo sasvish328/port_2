@@ -1,0 +1,39 @@
+body {
+  font-family: Curier, serif;
+  font-size: 16px;
+}
+
+.container {
+  min-width: 400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.if-v1 .btn-primary {
+  background: blueviolet;
+  color: white;
+}
+.if-v1 .btn-success {
+  background: palegreen;
+  color: black;
+}
+.if-v1 .btn-danger {
+  background: indianred;
+  color: white;
+}
+.if-v1 .btn-default {
+  background-color: white;
+  color: black;
+}
+
+header menu {
+  display: flex;
+  list-style: none;
+}
+
+/*# sourceMappingURL=article.css.map */

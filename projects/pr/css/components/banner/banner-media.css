@@ -1,0 +1,21 @@
+/* Error: Mixin doesn't accept a content block.
+ *   ,--> scss\components\banner\banner-media.scss
+ * 2 | @include desktop() {
+ *   | ^^^^^^^^^^^^^^^^^^ invocation
+ *   '
+ *   ,--> scss\common\media-breakpoints.scss
+ * 1 | @mixin desktop() {
+ *   |        ========= declaration
+ *   '
+ *   scss\components\banner\banner-media.scss 2:1  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Mixin doesn't accept a content block.\a   \250c \2500 \2500 > scss\\components\\banner\\banner-media.scss\a 2 \2502  @include desktop() {\d\a   \2502  ^^^^^^^^^^^^^^^^^^ invocation\a   \2575 \a   \250c \2500 \2500 > scss\\common\\media-breakpoints.scss\a 1 \2502  @mixin desktop() {\d\a   \2502         \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  declaration\a   \2575 \a   scss\\components\\banner\\banner-media.scss 2:1  root stylesheet";
+}

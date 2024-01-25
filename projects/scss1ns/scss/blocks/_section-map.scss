@@ -1,0 +1,35 @@
+.section-map {
+	position: relative;
+	padding: 11.25rem 0;
+  text-align: left;
+
+	// @include mediaTablet {
+	// 	padding: 5rem 0;
+	// }
+
+	&::before {
+		content: 'V';
+		right: calc(50% + 35rem);
+		transform: translate(50%, 0%);
+
+    @include decorNumber;
+		top: 180px;
+		line-height: 1;
+    @include mediaNotebook {
+      right: calc(50% + 25vw);
+      top: 10vw;
+    }
+	}
+}
+.section-map__title {
+	margin-bottom: 5.5rem;
+
+	@include mediaTablet {
+		margin-bottom: 3rem;
+	}
+}
+
+.map {
+	height: 22.375rem;
+  background: $map-bg;
+}

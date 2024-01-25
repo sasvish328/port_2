@@ -1,0 +1,58 @@
+.benefits {
+  display: flex;
+  position: relative;
+  gap: 4.38rem;
+  margin: 7.5rem auto;
+  padding: 120px 0;
+
+  @include mediaTablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10rem !important;
+    justify-content: center;
+  }
+
+
+
+
+  .item {
+    max-width: 12.1rem;
+
+  }
+  .b-icon {
+    margin-bottom: 3.31rem;
+
+    @include mediaTablet {
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  .b-name {
+    font-family: $font-secondary;
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 135%;
+    @include mediaTablet {
+      font-size: 1rem;
+    }
+  }
+
+	overflow: hidden;
+
+	&::after {
+		content: 'II';
+    right: -19rem;
+    bottom: -5rem;
+
+    @include decorNumber;
+	}
+}
+@include mediaNotebook {
+  .benefits {
+    gap: 1vw;
+    &::after {
+      right: 0;
+    }
+  }
+}

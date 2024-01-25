@@ -1,0 +1,17 @@
+/* Error: This at-rule is not allowed here.
+ *    ,
+ * 29 |   @return mix($inverse, $color, $amount);
+ *    |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   scss\common\functions.scss 29:3  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: This at-rule is not allowed here.\a    \2577 \a 29 \2502    @return mix($inverse, $color, $amount);\d\a    \2502    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   scss\\common\\functions.scss 29:3  root stylesheet";
+}

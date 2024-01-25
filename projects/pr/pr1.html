@@ -9,61 +9,86 @@
   <title>pr1</title>
 
   <style>
-  </style>
+    body {
+      width: 600px;
+    }
 
+    .b1 {
+      background-color: aqua;
+      opacity: 0.5;
+    }
+
+    .b2 {
+      position: relative;
+      background-color: green;
+      opacity: 0.5;
+    }
+
+    .b2::after {
+      content: "Z";
+      font-size: 100px;
+      color: white;
+      position: absolute;
+
+
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+    }
+  </style>
 </head>
 
 
 <body>
 
-  <form action="" class="form" id="form">
-    <div class="first-name">
-      <label class="suplabel required" for="first-name">First name
-      </label><br>
-      <input type="text" id="first-name" class="subinput" required>
-    </div>
-    <div class="last-name">
-      <label class="suplabel" for="last-name">Last name
-      </label><br>
-      <input type="text" id="last-name" class="subinput">
-      <div class="error-label"></div>
-    </div>
-    <button class="submit-btn">Submit</button>
-  </form>
-  <a href="#">1 link</a>
-  <a href="#">2 link</a>
-  <button>3. Buttun</button>
 
+  <section class="b1">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tempore perspiciatis eaque a ad voluptate
+      aspernatur, quasi, pariatur recusandae debitis sequi porro non commodi necessitatibus ipsam repudiandae
+      perferendis
+      enim et.
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, deleniti. Eos, quasi qui? Beatae sit modi, nulla
+      vero quas pariatur ea, dolorem itaque ex repudiandae incidunt consequatur, sequi obcaecati dignissimos.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquid iure dolores explicabo dolorem, officia,
+      tempore doloremque blanditiis est officiis, amet rerum. Quis dicta architecto perferendis hic ipsum adipisci
+      molestias?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis pariatur itaque molestias nam
+      cupiditate cumque minima quae, ducimus quia, quas numquam natus eveniet delectus quis consequuntur ipsam. Saepe,
+      debitis?
+    </p>
+  </section>
+  <hr>
+  <section class="b2">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tempore perspiciatis eaque a ad voluptate
+      aspernatur, quasi, pariatur recusandae debitis sequi porro non commodi necessitatibus ipsam repudiandae
+      perferendis
+      enim et.
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas, deleniti. Eos, quasi qui? Beatae sit modi, nulla
+      vero quas pariatur ea, dolorem itaque ex repudiandae incidunt consequatur, sequi obcaecati dignissimos.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquid iure dolores explicabo dolorem, officia,
+      tempore doloremque blanditiis est officiis, amet rerum. Quis dicta architecto perferendis hic ipsum adipisci
+      molestias?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis pariatur itaque molestias nam
+      cupiditate cumque minima quae, ducimus quia, quas numquam natus eveniet delectus quis consequuntur ipsam. Saepe,
+      debitis?
+    </p>
+  </section>
 
   <script>
-    const form1 = document.querySelector("form")
-    // form1.setAttribute("novalidate", "")
-    // Функция для проверки валидности элемента
-    function validate(element) {
-      // Проверяем значение элемента
-      const value = element.value
-
-      // Если значение невалидное, показываем сообщение об ошибке
-      if (!value.match(/^[a-z0-9]+$/)) {
-        element.classList.add("invalid")
-      } else {
-        element.classList.remove("invalid")
-      }
-    }
-
-    // Добавляем слушатель события blur на форму
-    form1.addEventListener("submit", (event) => {
-      // form1.addEventListener("blur", (event) => {
-      // Получаем элемент, на котором произошло событие
-      const element = event.target
-      console.log("будем проверять:", element.id)
-      // Если элемент является инпутом, вызываем функцию validate
-      if (element instanceof HTMLInputElement) {
-        validate(element)
-      }
-    })
-
-    console.log("form1 =", form1)
   </script>
 
 </body>

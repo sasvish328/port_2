@@ -658,6 +658,7 @@ footer > .nav-wrapper > .menu > li {
 .socials-item {
   border: 4rem solid rgba(0, 0, 0, 0);
   border-radius: 18rem;
+  background-color: white;
 }
 .socials-item:hover {
   border-color: var(--primary) ;
@@ -845,12 +846,17 @@ footer > .bottom div {
   header {
     grid-template-columns: 15vw 0vw auto 0vw 15vw;
   }
+
+  main > .header {
+    grid-template-columns: 1fr;
+  }
+
   main .skill-container {
     display: flex;
     flex-wrap: wrap;
   }
   .skill-item {
-    max-width: 44vw;
+    max-width: 48vw;
   }
   main > .contact {
     margin-top: 4vh;
@@ -874,11 +880,12 @@ footer > .bottom div {
   {
     margin: 1vh auto;
   }
-
-
   main > .header {
     display: flex;
     flex-direction: column;
+  }
+  .skill-item {
+    max-width: 96vw;
   }
   .testimonials > .content {
     flex-wrap: wrap;

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700&family=Roboto:wght@300&display=swap');
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $dark;
+  color: $white;
+  font-size: 1rem;
+}
+
+a {
+  color: $white;
+  transition: color 0.2s ease-in;
+
+  &:hover {
+    color: $accent;
+  }
+}
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1140px;
+  width: 1140px;
+
+  text-align: center;
+  &.sm {
+    max-width: 840px;
+  }
+}
+
+@include mediaNotebook {
+  :root {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 98vw;
+    &.sm {
+     max-width: 74vw;
+    }
+  }
+}
+
+// .text-right {
+//     text-align: right;
+// }
+
+.visually-hidden {
+  /* Contain text within 1px box */
+	height: 1px;
+	overflow: hidden;
+	width: 1px;
+
+	/* Keep the layout */
+	position: absolute;
+
+	/* Remove any visible trace (e.g. background color) */
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%); /* browsers in the future */
+
+	/* Prevent the screen reader to skip spaces between words */
+	white-space: nowrap;
+}
+
+.none {
+    display: none !important;
+}
+
+.title-2 {
+  font-family: $font-accent;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 3rem; 
+  color: $accent;
+  @include mediaTablet {
+    font-size: 1.5rem;
+  }
+}
+
+// .link-bold {
+//     color: $accent;
+//     font-weight: 700;
+// }
+
+.no-scroll {
+    overflow-y: hidden;
+}

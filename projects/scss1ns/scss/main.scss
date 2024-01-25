@@ -1,0 +1,25 @@
+@charset "utf-8";
+// русские символы
+
+// strict queue of import
+@import "./base/reset";
+@import "./base/vars";
+@import "./base/mixins";
+@import "./base/base";
+@import "./blocks/header";
+@import "./blocks/benefits";
+@import "./blocks/apartments";
+@import "./blocks/cta";
+@import "./blocks/video";
+@import "./blocks/section-map";
+@import "./blocks/feedback";
+@import "./blocks/footer";
+@import "./blocks/nav-icon";
+// @import "./extends";
+// @import "./mixins";
+// @import "./media-breakpoints";
+// all others files
+// common must be connected last
+// @import "./common";
+// @import "./if";
+

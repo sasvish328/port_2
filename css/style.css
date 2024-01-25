@@ -13,6 +13,7 @@
   --dark-blue: rgb(35, 21, 67);
   --h2text-color: var(--yeDS);
   --accent: rgb(59, 168, 163);
+  font-size: 16px;
 }
 
 html {
@@ -64,14 +65,14 @@ ul li {
   margin-left: 0; /* Убирает отступ слева у элементов <li> */
 }
 h1 {
-  font-size: 30px;
+  font-size: 2rem;
 }
 h2 {
   color: var(--h2text-color);
-  font-size: 24px;
+  font-size: 1.7rem;
 }
 h3 {
-  font-size: 20px;
+  font-size: 1.4rem;
   color: var(--sireneviy);
   margin: 5px auto 10px;
 }
@@ -123,7 +124,7 @@ thead {
   border-radius: 16px;
 }
 .contact-item-line {
-  font-size: 18px;
+  font-size: 1.2rem;
   background-color: var(--dark1);
   color: var(--bright-color);
 }

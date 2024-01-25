@@ -1,0 +1,97 @@
+.cta { 
+  text-align: left;
+  padding: 11.25rem 0;
+  @include mediaTablet {
+    padding: 4rem 0;
+  }
+
+  	background: linear-gradient(
+			180deg,
+			$dark 10.42%,
+			rgba(36, 43, 51, 0) 50.52%,
+			$dark 90.1%
+		),
+		linear-gradient(0deg, rgba(36, 43, 51, 0.9), rgba(36, 43, 51, 0.9)),
+		url('./../../img/cta/cta-bg.jpg'), #c4c4c4;
+}
+
+.cta__title {
+  margin-bottom: 1.06rem;
+}
+.cta__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  @include mediaTablet {
+    grid-template-columns: 1fr;
+  }
+
+
+}
+.cta__text {
+  line-height: 1.5rem;
+  p+p {
+    margin-bottom: 1rem;
+  }
+}
+@include mediaNotebook {
+  .cta .form__privacy {
+    align-items: flex-start;
+  }
+}
+
+.cta__form  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem 1.9rem;
+  @include media500 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form__input {
+  // width: 16rem;
+  height: 3.2rem;
+  padding: 0.9rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+  color: $white;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
+}
+
+.form__privacy {
+    font-size: 0.8125rem;
+    color: $muted;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    line-height: 1.23;
+    
+    @include media500 {
+      grid-row: 4 / 5;
+    }
+}
+
+.form__btn {
+  height: 50px;
+  padding: 12px;
+  // font-size: 16px;
+    color: $white;
+    font-weight: 700;
+    text-align: center;
+    background-color: $accent;
+    transition: background-color 0.3s ease-in;
+
+    &:hover {
+      background-color: saturate($accent, 40%);
+    }
+}
